@@ -57,15 +57,20 @@ You type a question
 Streamlit chat interface
        |
        v
-AgentShim (Groq llama-3.3-70b-versatile)
+AgentShim (Groq qwen/qwen3.6-27b)
   - Decides what to search and how many times
   - Uses 2 tools: search() and search_by_source()
        |
        v
-Knowledge base (137 chunks in DuckDB)
+Knowledge base (187 chunks in DuckDB)
   - Stack Overflow Survey 2024 (34 role chunks)
-  - O*NET 29.0 occupation data (8 tech role chunks)
-  - WEF Future of Jobs 2025 (95 regional forecast chunks)
+  - Stack Overflow Survey 2025 (32 role chunks)
+  - JetBrains Developer Ecosystem Survey 2025 (18 chunks)
+  - O*NET 29.0 occupation data (7 tech role chunks)
+  - WEF Future of Jobs 2025 (96 regional forecast chunks)
+       |
+       v
+Hybrid retrieval (text + vector, RRF) + cross-encoder rerank
        |
        v
 Answer with specific statistics and source citations
@@ -74,6 +79,8 @@ Answer with specific statistics and source citations
 **Why AgentShim instead of Pydantic AI directly?**
 Pydantic AI 2.22.0 has a confirmed bug with Groq tool calling, as it generates malformed function call format. AgentShim is a raw Groq client with a manual tool loop that produces correct tool calls. Pydantic is still used for `BaseModel` and `dataclass` type safety.
 
+**Retrieval**: hybrid search (RRF over text + vector search) followed by local cross-encoder reranking (`sentence-transformers`, `ms-marco-MiniLM`) — see Retrieval Evaluation below for why this method was selected.
+
 ---
 
 ## Dataset
@@ -81,14 +88,17 @@ Pydantic AI 2.22.0 has a confirmed bug with Groq tool calling, as it generates m
 | Source | Organization | License | Coverage | Why |
 |--------|-------------|---------|----------|-----|
 | [Stack Overflow Survey, 2024](https://survey.stackoverflow.co/2024/) | Stack Overflow | ODbL | 65,437 devs, 185 countries | Real tool adoption - what developers actually use |
+| [Stack Overflow Survey, 2025](https://survey.stackoverflow.co/2025/) | Stack Overflow | ODbL | 49,191 devs, 177 countries | Year-over-year shift in tool/language adoption |
+| [JetBrains Developer Ecosystem Survey 2025](https://www.jetbrains.com/lp/devecosystem-2025/) | JetBrains | Free w/ attribution | 24,534 devs, 194 countries | Cross-checks SO data with an independently-sampled developer population |
 | [O*NET 29.0](https://www.onetcenter.org/database.html) | U.S. Dept of Labor | CC BY 4.0 | 900+ occupations | Formal skill requirements - career roadmap data |
 | [WEF Future of Jobs 2025](https://www.weforum.org/publications/the-future-of-jobs-report-2025/) | World Economic Forum | Free w/ attribution | 55 economies | Regional job growth forecasts - non-US context |
 
 All datasets are **static snapshots**, meaning the knowledge base remains the same between runs. This makes the results reproducible and keeps evaluation metrics consistent.
 
-**Why combine these three sources?** No single dataset can answer every career-related question:
+**Why combine these five sources?** No single dataset can answer every career-related question:
 
-- **Stack Overflow Developer Survey** shows what technologies developers actually use, but not the formal requirements for a role or future demand.
+- **Stack Overflow Developer Surveys (2024 + 2025)** show what technologies developers actually use, and how that's shifting year over year, but not the formal requirements for a role or future demand.
+- **JetBrains Developer Ecosystem Survey** provides an independent cross-check on tool/language adoption from a differently-sampled developer population.
 - **O*NET** defines the skills and responsibilities associated with occupations, but not which tools and technologies are most commonly used in practice.
 - **WEF Future of Jobs** provides insights into regional labor market trends and demand, but not the specific technical skills needed for each role.
 
@@ -101,35 +111,47 @@ flowchart TD
     U([User]) --> ST[Streamlit UI\nstreamlit_app.py]
     ST --> AG[AgentShim\nRaw Groq Client + Manual Tool Loop]
     ST --> FB[Feedback\nthumbs up/down]
-    AG --> LLM[llama-3.3-70b-versatile\nGroq free tier]
+    AG --> LLM[qwen/qwen3.6-27b\nGroq free tier]
     AG --> LF[Logfire\nagent_run / llm_call / tool_call spans]
-    LLM -->|search tool| IDX[index.py\ntext search + vector + RRF]
+    LLM -->|search tool| IDX[index.py\ntext + vector + hybrid RRF + cross-encoder rerank]
     LLM -->|search_by_source tool| IDX
-    IDX --> DB[(DuckDB\n137 chunks)]
-    DB --> SO[Stack Overflow 2024\n34 role chunks\n185 countries]
-    DB --> ON[O*NET 29.0\n8 tech occupation chunks\nCC BY 4.0]
-    DB --> WEF[WEF Future of Jobs 2025\n95 regional chunks\n55 economies]
+    IDX --> RR[Cross-encoder reranker\nsentence-transformers, CPU]
+    IDX --> DB[(DuckDB\n187 chunks)]
+    DB --> SO24[Stack Overflow 2024\n34 role chunks\n185 countries]
+    DB --> SO25[Stack Overflow 2025\n32 role chunks\n177 countries]
+    DB --> JB[JetBrains Ecosystem 2025\n18 chunks\n194 countries]
+    DB --> ON[O*NET 29.0\n7 tech occupation chunks\nCC BY 4.0]
+    DB --> WEF[WEF Future of Jobs 2025\n96 regional chunks\n55 economies]
 ```
 
 ---
 
 ## Retrieval Evaluation
 
-Ground truth: **60 questions** generated from the knowledge base using Groq (3 questions per chunk, first 20 chunks). Evaluation uses fuzzy `dev_type` matching. This is fairer than exact chunk ID matching for a multi-source knowledge base.
+Ground truth: **90 questions**, stratified across all 5 source prefixes (`jb2025`, `onet`, `so`, `so2025`, `wef`; 6 chunks sampled per source, 3 questions per chunk) so every dataset — including the newly-added Stack Overflow 2025 and JetBrains 2025 surveys — is represented, not just the first N chunks. Evaluation uses exact chunk-ID matching.
 
 | Method | Hit Rate | MRR | Selected |
 |--------|----------|-----|----------|
-| text_search | **0.4111** | **0.2143** | YES |
-| vector_search | 0.2111 | 0.0815 | |
-| hybrid_search (RRF k=60) | 0.3889 | 0.2031 | |
+| text_search | 0.4556 | 0.3800 | |
+| vector_search | 0.5778 | 0.4702 | |
+| hybrid_search (RRF) | 0.6667 | 0.4893 | |
+| **hybrid_search + rerank** | **0.6889** | **0.6276** | YES |
 
-**text_search selected** as the agent's primary retrieval method, since it is the best on both Hit Rate and MRR.
+**hybrid_reranked selected** as the agent's primary retrieval method (best Hit Rate and MRR). Hybrid RRF retrieval pulls a larger candidate pool, then a local cross-encoder (`ms-marco-MiniLM`, via `sentence-transformers`) reranks down to the final top-n. This is also what `agent.py` uses in production.
+
+**LLM-as-judge prompt comparison** (10 sampled questions, scored 1-5 by an LLM judge):
+
+| Prompt Variant | Avg Score | Selected |
+|----------------|-----------|----------|
+| V1: concise | 2.4/5 | |
+| V2: detailed + citations | **2.9/5** | YES |
 
 To reproduce:
 ```bash
-rm -f data/processed/ground_truth.json
+rm -f data/processed/ground_truth.json data/processed/eval_results.json
 uv run python rag/evaluate.py
 ```
+(Ground truth and eval results are cached to `data/processed/`; delete them to force a full regeneration. Without deleting, a rerun loads the cached files and completes in seconds.)
 
 ---
 
@@ -156,12 +178,12 @@ User feedback (thumbs up / thumbs down) is collected per answer via the Streamli
 
 ```
 devpath/
-├── agent.py                  # Raw Groq agent + AgentShim manual tool loop
-├── index.py                  # text + vector + hybrid search (RRF)
-├── embedder.py               # ONNX embedder (all-MiniLM-L6-v2)
+├── agent.py                  # Raw Groq agent + AgentShim manual tool loop (uses hybrid_search_reranked)
+├── index.py                  # text + vector + hybrid search (RRF) + cross-encoder reranking
+├── embedder.py                # ONNX embedder (all-MiniLM-L6-v2), thread-safe tokenizer access
 ├── streamlit_app.py          # Streamlit Cloud entry (calls agent directly)
 ├── requirements.txt          # Streamlit Cloud dependencies
-├── pyproject.toml            # uv / Docker dependencies
+├── pyproject.toml            # uv / Docker dependencies (torch pinned to CPU-only wheel)
 ├── uv.lock                   # Locked dependency versions
 ├── Dockerfile.api            # FastAPI container
 ├── Dockerfile.ui             # Streamlit container
@@ -170,20 +192,24 @@ devpath/
 ├── api/main.py               # FastAPI: /ask /feedback /health /stats
 ├── ui/app.py                 # Streamlit UI for local Docker run
 ├── ingestion/
-│   ├── clean_so.py           # SO Survey -> so_chunks.json
-│   ├── clean_onet.py         # O*NET -> onet_chunks.json
-│   ├── extract_wef.py        # WEF PDF -> wef_chunks.json
-│   └── pipeline.py           # dlt: JSON chunks -> DuckDB
+│   ├── clean_so.py            # SO Survey 2024 -> so_chunks.json
+│   ├── clean_so2025.py        # SO Survey 2025 -> so2025_chunks.json (NEW)
+│   ├── clean_jetbrains.py     # JetBrains Ecosystem 2025 -> jb2025_chunks.json (NEW)
+│   ├── clean_onet.py          # O*NET -> onet_chunks.json
+│   ├── extract_wef.py         # WEF PDF -> wef_chunks.json
+│   └── pipeline.py            # dlt: JSON chunks -> DuckDB
 ├── rag/
 │   ├── download.py           # Downloads ONNX model
-│   └── evaluate.py           # Hit Rate + MRR evaluation
+│   └── evaluate.py           # Hit Rate + MRR + LLM-as-judge prompt comparison, with 429/TPD-aware retry + model fallback
 ├── models/                   # ONNX model files (committed, ~90MB)
 └── data/processed/           # JSON chunks + eval results (committed)
-    ├── so_chunks.json        # 34 developer role chunks
-    ├── onet_chunks.json      # 8 tech occupation chunks
-    ├── wef_chunks.json       # Regional forecast chunks
-    ├── ground_truth.json     # 60 evaluation Q&A pairs
-    └── eval_results.json     # Hit Rate + MRR results
+    ├── so_chunks.json        # 34 developer role chunks (SO 2024)
+    ├── so2025_chunks.json    # 32 developer role chunks (SO 2025)
+    ├── jb2025_chunks.json    # 18 chunks (JetBrains Ecosystem 2025)
+    ├── onet_chunks.json      # 7 tech occupation chunks
+    ├── wef_chunks.json       # 96 regional forecast chunks
+    ├── ground_truth.json     # 90 evaluation Q&A pairs (stratified across all 5 sources)
+    └── eval_results.json     # Hit Rate + MRR + RAG prompt comparison results
 ```
 
 ---
@@ -196,6 +222,7 @@ devpath/
 - Docker Desktop (for local containerized run)
 - Groq API key (free at [console.groq.com](https://console.groq.com))
 - Logfire token (free at [logfire.dev](https://logfire.dev))
+- (Optional) Hugging Face token — set `HF_TOKEN` to avoid HF Hub's anonymous rate limit when the cross-encoder reranker downloads on first use
 
 ### Installation
 
@@ -204,7 +231,7 @@ git clone https://github.com/CalistaJajalla/devpath.git
 cd devpath
 uv sync
 cp .env.example .env
-# Edit .env and add your GROQ_API_KEY and LOGFIRE_TOKEN
+# Edit .env and add your GROQ_API_KEY, LOGFIRE_TOKEN, and (optional) HF_TOKEN
 ```
 
 ### Download datasets
@@ -266,6 +293,8 @@ GROQ_API_KEY=gsk_your-groq-key-here
 LOGFIRE_TOKEN=your-logfire-write-token
 LOGFIRE_READ_TOKEN=your-logfire-read-token
 API_URL=http://localhost:8000
+HF_TOKEN=hf_your-huggingface-token-here   # optional, avoids anonymous HF Hub rate limits for the cross-encoder
+TOKENIZERS_PARALLELISM=false               # avoids "Already borrowed" tokenizer errors under concurrent access
 ```
 
 ---
@@ -277,9 +306,9 @@ For peer reviewers - here is where to find each criterion:
 | Criterion | Where |
 |-----------|-------|
 | Problem description | This README: Problem and Dataset sections |
-| Retrieval flow | `index.py`, `agent.py`: RAG + agentic with 2 search tools |
+| Retrieval flow | `index.py`, `agent.py`: RAG + agentic with 2 search tools, hybrid + cross-encoder rerank |
 | Retrieval evaluation | `rag/evaluate.py`, `data/processed/eval_results.json`, table above |
-| LLM evaluation | `rag/evaluate.py`: single prompt variant (2nd prompt in Aug 18) |
+| LLM evaluation | `rag/evaluate.py`: prompt V1 vs V2 comparison, LLM-as-judge |
 | Interface | Live at devpath.streamlit.app / locally via docker compose up |
 | Ingestion pipeline | `ingestion/` folder: 4 scripts + dlt pipeline to DuckDB |
 | Monitoring | Logfire traces at logfire.dev + thumbs feedback in UI |
@@ -292,6 +321,6 @@ For peer reviewers - here is where to find each criterion:
 
 - **Pydantic AI compatibility**: The version used has issues with tool calling when paired with Groq, so the application uses the native Groq client as a workaround.
 - **WEF data extraction**: The quality of extracted text depends on the PDF structure. If extraction is incomplete, the system falls back to using only the Stack Overflow Survey and O*NET datasets.
-- **Memory usage**: The ONNX embedding model requires around 300 MB of memory. On Streamlit Cloud's 1 GB limit, the initial load may take longer.
-- **Groq rate limits**: The free tier may occasionally throttle requests. If a request is delayed or fails due to rate limiting, wait about a minute before trying again.
-- **Evaluation metrics**: A Hit Rate of 0.41 is expected because the knowledge base combines heterogeneous sources, including PDF text and aggregated survey data. To improve retrieval quality, the agent performs multiple searches for each query.
+- **Memory usage**: The ONNX embedding model requires around 300 MB of memory. On Streamlit Cloud's 1 GB limit, the initial load may take longer. The cross-encoder reranker (`sentence-transformers`/torch, CPU-only) adds additional memory and cold-start time — expect a slower first load especially on Streamlit Community Cloud's free tier.
+- **Groq rate limits**: The free tier may occasionally throttle requests, including daily (not just per-minute) token quotas on some models. `rag/evaluate.py` detects daily-quota errors and falls back to an alternate model rather than retrying indefinitely.
+- **Evaluation metrics**: Hit Rate/MRR reflect exact chunk-ID matching across a heterogeneous, multi-source knowledge base; hybrid search with cross-encoder reranking gave the largest improvement over single-method retrieval (see table above).
