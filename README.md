@@ -2,8 +2,6 @@
 
 > A RAG + agentic assistant that answers developer career questions grounded in data from 65,000+ real developers and global labor market research.
 
-**Live app**: https://devpath-tech-career-roadmap-agent.streamlit.app/
-
 ![Landing Page](media/devpath-title.png)
 
 > Note: First load may take 60 seconds as Streamlit Community Cloud wakes up on demand. Please be patient when accessing the site.
