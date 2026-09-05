@@ -140,7 +140,10 @@ if st.session_state.page == "stats":
             "MRR": [eval_results['text']['mrr'], eval_results['vector']['mrr'], eval_results['hybrid']['mrr'], eval_results['hybrid_reranked']['mrr']],
         }
         import pandas as pd
-        st.dataframe(pd.DataFrame(df_eval), use_container_width=True)
+        df_eval = pd.DataFrame(df_eval)
+        st.dataframe(df_eval, use_container_width=True)
+        st.markdown("**Retrieval Method Comparison**")
+        st.bar_chart(df_eval.set_index("Method"))
 
         if 'rag_evaluation' in eval_results:
             st.markdown("**RAG Prompt Comparison (LLM-as-Judge)**")
@@ -149,6 +152,11 @@ if st.session_state.page == "stats":
             col1.metric("Prompt V1 (Concise)", f"{rag['prompt_v1_concise']['avg_score']}/5")
             col2.metric("Prompt V2 (Detailed+Citations)", f"{rag['prompt_v2_detailed']['avg_score']}/5")
             st.success(f"Winner: {rag['winner']} - used in production agent")
+            df_rag = pd.DataFrame({
+                "Prompt": ["V1: concise", "V2: detailed + citations"],
+                "Avg Score": [rag['prompt_v1_concise']['avg_score'], rag['prompt_v2_detailed']['avg_score']],
+            })
+            st.bar_chart(df_rag.set_index("Prompt"))
     except Exception:
         st.caption("Run rag/evaluate.py to see evaluation results.")
 
@@ -161,7 +169,10 @@ if st.session_state.page == "stats":
         "Chunks": [34, 32, 18, 7, 96]
     }
     import pandas as pd
-    st.dataframe(pd.DataFrame(data), use_container_width=True)
+    df_data = pd.DataFrame(data)
+    st.dataframe(df_data, use_container_width=True)
+    st.markdown("**Chunks per Source**")
+    st.bar_chart(df_data.set_index("Source")["Chunks"])
 
 # ── Chat Page ─────────────────────────────────────────────────────────────────
 else:
