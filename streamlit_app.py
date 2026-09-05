@@ -239,24 +239,40 @@ else:
             st.markdown('<div class="ex-card">Is data science a viable career in Southeast Asia?</div>', unsafe_allow_html=True)
         st.divider()
 
+    if "pending_prompt" not in st.session_state:
+        st.session_state.pending_prompt = None
+
+    is_generating = st.session_state.pending_prompt is not None
+
     for i, msg in enumerate(st.session_state.messages):
         with st.chat_message(msg["role"]):
             st.write(msg["content"])
             if msg["role"] == "assistant":
                 col1, col2, _ = st.columns([1, 1, 8])
-                if col1.button("Helpful", key=f"up_{i}"):
+                # Disabled while a response is generating - clicking any
+                # button mid-generation would cancel the in-flight agent.run()
+                # call, since Streamlit only runs one script pass at a time.
+                if col1.button("Helpful", key=f"up_{i}", disabled=is_generating):
                     prev_q = st.session_state.messages[i-1]["content"] if i > 0 else ""
                     log_feedback(prev_q, 1)
                     st.toast("Thanks for the feedback!")
-                if col2.button("Not helpful", key=f"dn_{i}"):
+                if col2.button("Not helpful", key=f"dn_{i}", disabled=is_generating):
                     prev_q = st.session_state.messages[i-1]["content"] if i > 0 else ""
                     log_feedback(prev_q, -1)
                     st.toast("Thanks, we will improve!")
 
-    if prompt := st.chat_input("Ask about your tech career..."):
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.write(prompt)
+    if not is_generating:
+        if prompt := st.chat_input("Ask about your tech career..."):
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            st.session_state.pending_prompt = prompt
+            # Rerun immediately so the user message + disabled buttons render
+            # right away, before the slow agent call even starts. Without
+            # this, the buttons above stay clickable (and able to cancel the
+            # generation) for the entire duration of the query.
+            st.rerun()
+    else:
+        st.chat_input("Ask about your tech career...", disabled=True)
+        prompt = st.session_state.pending_prompt
         with st.chat_message("assistant"):
             placeholder = st.empty()
             placeholder.caption("Searching knowledge base...")
@@ -277,7 +293,5 @@ else:
             placeholder.empty()
             st.write(answer)
         st.session_state.messages.append({"role": "assistant", "content": answer})
-        # Rerun so the Helpful/Not helpful buttons render immediately under
-        # this new answer, instead of only appearing after the next
-        # unrelated rerun (e.g. clicking Chat/Stats).
+        st.session_state.pending_prompt = None
         st.rerun()

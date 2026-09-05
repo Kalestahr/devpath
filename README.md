@@ -2,6 +2,8 @@
 
 > A RAG + agentic assistant that answers developer career questions grounded in data from 65,000+ real developers and global labor market research.
 
+**Live app:** [devpath-tech-career-roadmap-agent.streamlit.app](https://devpath-tech-career-roadmap-agent.streamlit.app/)
+
 ![Landing Page](media/devpath-title.png)
 
 > Note: First load may take 60 seconds as Streamlit Community Cloud wakes up on demand. Please be patient when accessing the site.
@@ -309,7 +311,7 @@ For peer reviewers - here is where to find each criterion:
 | Retrieval flow | `index.py`, `agent.py`: RAG + agentic with 2 search tools, hybrid + cross-encoder rerank |
 | Retrieval evaluation | `rag/evaluate.py`, `data/processed/eval_results.json`, table above |
 | LLM evaluation | `rag/evaluate.py`: prompt V1 vs V2 comparison, LLM-as-judge |
-| Interface | Live at devpath.streamlit.app / locally via docker compose up |
+| Interface | Live at [devpath-tech-career-roadmap-agent.streamlit.app](https://devpath-tech-career-roadmap-agent.streamlit.app/) / locally via docker compose up |
 | Ingestion pipeline | `ingestion/` folder: 4 scripts + dlt pipeline to DuckDB |
 | Monitoring | Logfire traces at logfire.dev + thumbs feedback in UI |
 | Containerization | `docker-compose.yml`, `Dockerfile.api`, `Dockerfile.ui` |

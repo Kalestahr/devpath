@@ -19,10 +19,6 @@ print("Ready.")
 
 groq_client = AsyncGroq(
     api_key=os.getenv('GROQ_API_KEY'),
-    # SDK defaults are timeout=120s and max_retries=2 - a single slow or
-    # rate-limited call could silently retry for minutes before our own
-    # per-iteration fallback logic ever gets a chance to run. Tightening
-    # this makes a stuck call fail fast into that fallback instead.
     timeout=30.0,
     max_retries=1,
 )
@@ -163,7 +159,7 @@ async def run_agent(question: str, deps: Deps) -> str:
     ]
 
     with logfire.span('agent_run', question=question, region=deps.region, target_role=deps.target_role):
-        MAX_ITERATIONS = 4
+        MAX_ITERATIONS = 3
         for iteration in range(MAX_ITERATIONS):
             force_final = (iteration == MAX_ITERATIONS - 1)
 
