@@ -129,15 +129,16 @@ if st.session_state.page == "stats":
     try:
         with open('data/processed/eval_results.json') as f:
             eval_results = json.load(f)
+        selected = eval_results['best_retrieval_method']
         col1, col2, col3 = st.columns(3)
-        col1.metric("Text Search Hit Rate", eval_results['text']['hit_rate'])
-        col2.metric("Text Search MRR", eval_results['text']['mrr'])
-        col3.metric("Selected Method", "text_search")
+        col1.metric(f"{selected.replace('_', ' ').title()} Hit Rate", eval_results[selected]['hit_rate'])
+        col2.metric(f"{selected.replace('_', ' ').title()} MRR", eval_results[selected]['mrr'])
+        col3.metric("Selected Method", selected)
 
         df_eval = {
-            "Method": ["text_search", "vector_search", "hybrid (RRF)"],
-            "Hit Rate": [eval_results['text']['hit_rate'], eval_results['vector']['hit_rate'], eval_results['hybrid']['hit_rate']],
-            "MRR": [eval_results['text']['mrr'], eval_results['vector']['mrr'], eval_results['hybrid']['mrr']],
+            "Method": ["text_search", "vector_search", "hybrid (RRF)", "hybrid + rerank"],
+            "Hit Rate": [eval_results['text']['hit_rate'], eval_results['vector']['hit_rate'], eval_results['hybrid']['hit_rate'], eval_results['hybrid_reranked']['hit_rate']],
+            "MRR": [eval_results['text']['mrr'], eval_results['vector']['mrr'], eval_results['hybrid']['mrr'], eval_results['hybrid_reranked']['mrr']],
         }
         import pandas as pd
         st.dataframe(pd.DataFrame(df_eval), use_container_width=True)
