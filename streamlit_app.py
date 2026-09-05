@@ -19,12 +19,6 @@ _ensure_monitoring_tables()
 
 @st.cache_resource
 def _get_executor():
-    # A single shared thread pool so agent.run() executes on a background
-    # thread instead of blocking the main Streamlit script. Any click during
-    # generation still triggers Streamlit's usual rerun-and-cancel-the-script
-    # behavior, but the background thread is unaffected by that, so the
-    # in-flight answer keeps generating and the next rerun just picks up the
-    # result whenever it's ready.
     return concurrent.futures.ThreadPoolExecutor(max_workers=4)
 
 API_URL = os.getenv('API_URL', 'http://localhost:8000')
@@ -149,8 +143,12 @@ if st.session_state.page == "stats":
                 else:
                     counts[4] += 1
             df_buckets = pd.DataFrame({"Range": buckets, "Queries": counts})
-            df_buckets["Range"] = pd.Categorical(df_buckets["Range"], categories=buckets, ordered=True)
-            st.bar_chart(df_buckets.set_index("Range"))
+            import altair as alt
+            chart = alt.Chart(df_buckets).mark_bar(color="#F59E0B").encode(
+                x=alt.X("Range", sort=buckets, title=None),
+                y=alt.Y("Queries", title=None),
+            )
+            st.altair_chart(chart, use_container_width=True)
 
         query_log = get_query_log()
         if query_log:
@@ -292,10 +290,6 @@ else:
                 _run_agent_sync, prompt, skills_list, target_role, region
             )
             st.session_state.pending_start = time.time()
-            # Rerun immediately so the user message + disabled buttons show
-            # right away, while the actual work happens on the background
-            # thread we just submitted - independent of this script's
-            # lifecycle from here on.
             st.rerun()
     else:
         st.chat_input("Ask about your tech career...", disabled=True)
