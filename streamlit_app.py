@@ -4,9 +4,11 @@ load_dotenv()
 import asyncio
 import streamlit as st
 import os, json
-from datetime import datetime
 
 from agent import agent, Deps
+from monitoring import init_tables, log_feedback, log_query_time, get_feedback_log, get_query_times
+
+init_tables()
 
 API_URL = os.getenv('API_URL', 'http://localhost:8000')
 
@@ -38,10 +40,6 @@ st.markdown("""
 # Session state init
 if "messages" not in st.session_state:
     st.session_state.messages = []
-if "feedback_log" not in st.session_state:
-    st.session_state.feedback_log = []
-if "query_times" not in st.session_state:
-    st.session_state.query_times = []
 if "page" not in st.session_state:
     st.session_state.page = "chat"
 
@@ -82,13 +80,14 @@ if st.session_state.page == "stats":
     st.markdown("## Monitoring Dashboard")
     st.divider()
 
-    fb = st.session_state.feedback_log
-    times = st.session_state.query_times
-    msgs = st.session_state.messages
-    n_queries = len([m for m in msgs if m["role"] == "user"])
+    fb = get_feedback_log()
+    times = get_query_times()
+    n_queries = len(times)
     n_positive = sum(1 for f in fb if f["rating"] == 1)
     n_negative = sum(1 for f in fb if f["rating"] == -1)
     avg_time = round(sum(times) / len(times), 2) if times else 0
+
+    st.caption("Totals below are across all sessions, not just this browser tab.")
 
     # Metric cards
     col1, col2, col3, col4 = st.columns(4)
@@ -188,11 +187,11 @@ else:
                 col1, col2, _ = st.columns([1, 1, 8])
                 if col1.button("Helpful", key=f"up_{i}"):
                     prev_q = st.session_state.messages[i-1]["content"] if i > 0 else ""
-                    st.session_state.feedback_log.append({"question": prev_q, "rating": 1, "time": datetime.now().isoformat()})
+                    log_feedback(prev_q, 1)
                     st.toast("Thanks for the feedback!")
                 if col2.button("Not helpful", key=f"dn_{i}"):
                     prev_q = st.session_state.messages[i-1]["content"] if i > 0 else ""
-                    st.session_state.feedback_log.append({"question": prev_q, "rating": -1, "time": datetime.now().isoformat()})
+                    log_feedback(prev_q, -1)
                     st.toast("Thanks, we will improve!")
 
     if prompt := st.chat_input("Ask about your tech career..."):
@@ -215,7 +214,7 @@ else:
             except Exception as e:
                 answer = f"Error: {str(e)}"
             elapsed = round(time.time() - start, 2)
-            st.session_state.query_times.append(elapsed)
+            log_query_time(prompt, elapsed)
             placeholder.empty()
             st.write(answer)
         st.session_state.messages.append({"role": "assistant", "content": answer})
