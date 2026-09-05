@@ -2,6 +2,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import asyncio
+import time
+import concurrent.futures
 import streamlit as st
 import os, json
 
@@ -14,6 +16,16 @@ def _ensure_monitoring_tables():
     return True
 
 _ensure_monitoring_tables()
+
+@st.cache_resource
+def _get_executor():
+    # A single shared thread pool so agent.run() executes on a background
+    # thread instead of blocking the main Streamlit script. Any click during
+    # generation still triggers Streamlit's usual rerun-and-cancel-the-script
+    # behavior, but the background thread is unaffected by that, so the
+    # in-flight answer keeps generating and the next rerun just picks up the
+    # result whenever it's ready.
+    return concurrent.futures.ThreadPoolExecutor(max_workers=4)
 
 API_URL = os.getenv('API_URL', 'http://localhost:8000')
 
@@ -242,6 +254,10 @@ else:
 
     if "pending_prompt" not in st.session_state:
         st.session_state.pending_prompt = None
+    if "pending_future" not in st.session_state:
+        st.session_state.pending_future = None
+    if "pending_start" not in st.session_state:
+        st.session_state.pending_start = None
 
     is_generating = st.session_state.pending_prompt is not None
 
@@ -250,9 +266,6 @@ else:
             st.write(msg["content"])
             if msg["role"] == "assistant":
                 col1, col2, _ = st.columns([1, 1, 8])
-                # Disabled while a response is generating - clicking any
-                # button mid-generation would cancel the in-flight agent.run()
-                # call, since Streamlit only runs one script pass at a time.
                 if col1.button("Helpful", key=f"up_{i}", disabled=is_generating):
                     prev_q = st.session_state.messages[i-1]["content"] if i > 0 else ""
                     log_feedback(prev_q, 1)
@@ -262,33 +275,43 @@ else:
                     log_feedback(prev_q, -1)
                     st.toast("Thanks, we will improve!")
 
+    def _run_agent_sync(question, skills, target_role_, region_):
+        deps = Deps(skills=skills, target_role=target_role_, region=region_)
+        try:
+            result = asyncio.run(agent.run(question, deps=deps))
+            return result.output
+        except Exception as e:
+            return f"Error: {str(e)}"
+
     if not is_generating:
         if prompt := st.chat_input("Ask about your tech career..."):
             st.session_state.messages.append({"role": "user", "content": prompt})
             st.session_state.pending_prompt = prompt
+            skills_list = [s.strip() for s in skills_input.split(",") if s.strip()]
+            st.session_state.pending_future = _get_executor().submit(
+                _run_agent_sync, prompt, skills_list, target_role, region
+            )
+            st.session_state.pending_start = time.time()
+            # Rerun immediately so the user message + disabled buttons show
+            # right away, while the actual work happens on the background
+            # thread we just submitted - independent of this script's
+            # lifecycle from here on.
             st.rerun()
     else:
         st.chat_input("Ask about your tech career...", disabled=True)
-        prompt = st.session_state.pending_prompt
         with st.chat_message("assistant"):
-            placeholder = st.empty()
-            placeholder.caption("Searching knowledge base...")
-            import time
-            start = time.time()
-            try:
-                deps = Deps(
-                    skills=[s.strip() for s in skills_input.split(",") if s.strip()],
-                    target_role=target_role,
-                    region=region
-                )
-                result = asyncio.run(agent.run(prompt, deps=deps))
-                answer = result.output
-            except Exception as e:
-                answer = f"Error: {str(e)}"
-            elapsed = round(time.time() - start, 2)
-            log_query_time(prompt, elapsed)
-            placeholder.empty()
-            st.write(answer)
-        st.session_state.messages.append({"role": "assistant", "content": answer})
-        st.session_state.pending_prompt = None
-        st.rerun()
+            future = st.session_state.pending_future
+            if future.done():
+                answer = future.result()
+                elapsed = round(time.time() - st.session_state.pending_start, 2)
+                log_query_time(st.session_state.pending_prompt, elapsed)
+                st.write(answer)
+                st.session_state.messages.append({"role": "assistant", "content": answer})
+                st.session_state.pending_prompt = None
+                st.session_state.pending_future = None
+                st.session_state.pending_start = None
+                st.rerun()
+            else:
+                st.caption("Searching knowledge base...")
+                time.sleep(0.5)
+                st.rerun()

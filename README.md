@@ -2,7 +2,9 @@
 
 > A RAG + agentic assistant that answers developer career questions grounded in data from 65,000+ real developers and global labor market research.
 
-**Live app:** [devpath-tech-career-roadmap-agent.streamlit.app](https://devpath-tech-career-roadmap-agent.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://devpath-tech-career-roadmap-agent.streamlit.app/)
+
+### 🚀 [**Try the live demo →**](https://devpath-tech-career-roadmap-agent.streamlit.app/)
 
 ![Landing Page](media/devpath-title.png)
 
@@ -233,7 +235,6 @@ git clone https://github.com/CalistaJajalla/devpath.git
 cd devpath
 uv sync
 cp .env.example .env
-# Edit .env and add your GROQ_API_KEY, LOGFIRE_TOKEN, and (optional) HF_TOKEN
 ```
 
 ### Download datasets
@@ -294,9 +295,7 @@ API_URL=http://localhost:8000 uv run streamlit run ui/app.py
 GROQ_API_KEY=gsk_your-groq-key-here
 LOGFIRE_TOKEN=your-logfire-write-token
 LOGFIRE_READ_TOKEN=your-logfire-read-token
-API_URL=http://localhost:8000
-HF_TOKEN=hf_your-huggingface-token-here   # optional, avoids anonymous HF Hub rate limits for the cross-encoder
-TOKENIZERS_PARALLELISM=false               # avoids "Already borrowed" tokenizer errors under concurrent access
+API_URL=http://localhost:8000       
 ```
 
 ---
