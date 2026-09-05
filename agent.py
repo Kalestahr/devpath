@@ -18,7 +18,9 @@ _text_idx, _vec_idx, _ = build_indexes(_chunks)
 print("Ready.")
 
 groq_client = AsyncGroq(api_key=os.getenv('GROQ_API_KEY'))
-MODEL = "qwen/qwen3.6-27b"
+
+MODEL = "openai/gpt-oss-120b"
+MODEL_FALLBACK = "openai/gpt-oss-20b"
 
 class AskRequest(BaseModel):
     question: str
@@ -45,7 +47,9 @@ Rules:
 - Always cite your source with specific numbers e.g. "According to SO Survey 2025, X% of data engineers use Python"
 - Use specific numbers and percentages from search results - never make up stats
 - When the user mentions a country or region, prioritize region-specific data
-- Make at least 2 searches before answering
+- Search the knowledge base whenever you need current stats to answer. Simple
+  follow-up or clarifying questions that do not need new data can be answered
+  directly without a search
 - Be practical and give concrete next steps
 '''.strip()
 
@@ -96,28 +100,6 @@ SOURCE_MAP = {
     "wef_2025": "wef_2025",
 }
 
-async def rewrite_query(question: str, deps: Deps) -> str:
-    """Rewrite user question into search-optimized query."""
-    context = f"Skills: {', '.join(deps.skills) or 'not specified'}. Target: {deps.target_role or 'not specified'}. Region: {deps.region or 'not specified'}."
-    prompt = f'''Rewrite this career question as a short search query (5-8 words max) for a developer career knowledge base.
-Return ONLY the search query, nothing else.
-
-Context: {context}
-Question: {question}
-Search query:'''
-    try:
-        r = await groq_client.chat.completions.create(
-            model=MODEL,
-            messages=[{'role': 'user', 'content': prompt}],
-            max_tokens=30,
-        )
-        rewritten = r.choices[0].message.content.strip()
-        rewritten = re.sub(r'<think>.*?</think>', '', rewritten, flags=re.DOTALL).strip()
-        rewritten = rewritten.strip('"\'')
-        return rewritten if len(rewritten) > 3 else question
-    except Exception:
-        return question
-
 def run_tool(name: str, args: dict) -> str:
     with logfire.span('tool_call', tool=name, query=args.get('query', '')):
         if name == "search":
@@ -136,10 +118,6 @@ def run_tool(name: str, args: dict) -> str:
         return "Unknown tool."
 
 async def run_agent(question: str, deps: Deps) -> str:
-    # Query rewriting - improves retrieval
-    rewritten = await rewrite_query(question, deps)
-    logfire.info('query_rewrite', original=question, rewritten=rewritten)
-
     context = (
         f"User skills: {', '.join(deps.skills) if deps.skills else 'not specified'}. "
         f"Target role: {deps.target_role or 'not specified'}. "
@@ -147,10 +125,10 @@ async def run_agent(question: str, deps: Deps) -> str:
     )
     messages = [
         {"role": "system", "content": SYSTEM},
-        {"role": "user", "content": f"{context}\n\nQuestion: {question}\nSearch hint: {rewritten}"}
+        {"role": "user", "content": f"{context}\n\nQuestion: {question}"}
     ]
 
-    with logfire.span('agent_run', question=question, rewritten_query=rewritten, region=deps.region, target_role=deps.target_role):
+    with logfire.span('agent_run', question=question, region=deps.region, target_role=deps.target_role):
         for iteration in range(6):
             try:
                 with logfire.span('llm_call', iteration=iteration):
@@ -165,16 +143,31 @@ async def run_agent(question: str, deps: Deps) -> str:
                         output_tokens=response.usage.completion_tokens if response.usage else 0,
                     )
             except Exception:
+                # Primary model
                 try:
-                    with logfire.span('llm_fallback'):
+                    with logfire.span('llm_fallback', model=MODEL_FALLBACK):
                         response = await groq_client.chat.completions.create(
-                            model=MODEL,
+                            model=MODEL_FALLBACK,
                             messages=messages,
+                            tools=TOOLS,
+                            tool_choice="auto",
                         )
-                    answer = response.choices[0].message.content or "No answer generated."
-                    return re.sub(r'<think>.*?</think>', '', answer, flags=re.DOTALL).strip()
-                except Exception as e:
-                    return f"An error occurred: {str(e)}"
+                    msg = response.choices[0].message
+                    if not msg.tool_calls:
+                        answer = msg.content or "No answer generated."
+                        return re.sub(r'<think>.*?</think>', '', answer, flags=re.DOTALL).strip()
+                    # fallback model 
+                except Exception:
+                    try:
+                        with logfire.span('llm_fallback_no_tools', model=MODEL_FALLBACK):
+                            response = await groq_client.chat.completions.create(
+                                model=MODEL_FALLBACK,
+                                messages=messages,
+                            )
+                        answer = response.choices[0].message.content or "No answer generated."
+                        return re.sub(r'<think>.*?</think>', '', answer, flags=re.DOTALL).strip()
+                    except Exception as e:
+                        return f"An error occurred: {str(e)}"
 
             msg = response.choices[0].message
             if not msg.tool_calls:

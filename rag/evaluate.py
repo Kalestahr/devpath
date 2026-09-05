@@ -15,14 +15,10 @@ from index import load_chunks, build_indexes, text_search, vector_search, hybrid
 
 groq_client = Groq()
 
-# GT_MODEL / JUDGE_MODEL: small fast model to save TPD budget
-# RAG_MODEL: quality model only for the RAG prompt comparison
 GT_MODEL       = "openai/gpt-oss-20b"
 JUDGE_MODEL    = "openai/gpt-oss-20b"
-RAG_MODEL      = "qwen/qwen3.6-27b"
-# Used automatically if RAG_MODEL hits a *daily* token quota (TPD) instead of
-# a per-minute limit, since waiting won't help within the same run.
-RAG_MODEL_FALLBACK = "openai/gpt-oss-120b"
+RAG_MODEL      = "openai/gpt-oss-120b"
+RAG_MODEL_FALLBACK = "openai/gpt-oss-20b"
 
 
 def _is_daily_quota_error(msg):
@@ -33,7 +29,6 @@ def _is_daily_quota_error(msg):
 def _parse_wait_seconds(msg, attempt, base_wait):
     """Best-effort parse of Groq's 'try again in ...' hint. Falls back to
     exponential backoff if the message doesn't match a known format."""
-    # e.g. "try again in 5h32m12.3s" / "try again in 5h32m" / "try again in 32m" / "try again in 12s"
     m = re.search(r'try again in\s*(?:(\d+)h)?\s*(?:(\d+)m)?\s*(?:([\d.]+)s)?', msg, re.IGNORECASE)
     if m and any(m.groups()):
         h = int(m.group(1) or 0)
@@ -55,9 +50,6 @@ def groq_call_with_retry(model, messages, max_retries=6, base_wait=90):
             msg = str(e)
             if "rate_limit_exceeded" in msg or "429" in msg:
                 if _is_daily_quota_error(msg):
-                    # Daily quota exhausted -- retrying/sleeping within this run
-                    # won't help, it won't reset for hours. Fail fast so the
-                    # caller can fall back to a different model instead.
                     print(f"  [429] Daily token quota exhausted on {model}. Not retrying.")
                     return None
                 wait = _parse_wait_seconds(msg, attempt, base_wait)
@@ -140,7 +132,6 @@ def evaluate(ground_truth, search_fn):
     relevance = []
     for q, doc_id in ground_truth:
         results = search_fn(q)
-        # Exact id match only -- ground truth now covers all prefixes
         rel = [1 if r['id'] == doc_id else 0 for r in results]
         relevance.append(rel)
     return {
