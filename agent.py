@@ -125,6 +125,23 @@ def run_tool(name: str, args: dict) -> str:
             return '\n\n'.join(f"[{r['source']}]\n{r['content'][:600]}" for r in filtered[:3])
         return "Unknown tool."
 
+def _gathered_results_text(messages: list) -> str:
+    """Summary of every search result gathered so far this turn."""
+    excerpts = [m["content"] for m in messages if m.get("role") == "tool" and m.get("content")]
+    return "\n\n".join(excerpts) if excerpts else ""
+
+def _fallback_answer_from_tool_results(messages: list) -> str:
+    """Build an answer directly from whatever search results were
+    already gathered this turn."""
+    gathered = _gathered_results_text(messages)
+    if not gathered:
+        return ("I ran into a problem reaching the model and wasn't able to search for an "
+                "answer. Please try asking again in a moment.")
+    excerpts = gathered.split("\n\n")
+    combined = "\n\n".join(excerpts[:3])
+    return ("I ran into a problem generating a full response, but here's what turned up in "
+            f"the knowledge base for your question:\n\n{combined}")
+
 async def run_agent(question: str, deps: Deps) -> str:
     context = (
         f"User skills: {', '.join(deps.skills) if deps.skills else 'not specified'}. "
@@ -140,43 +157,62 @@ async def run_agent(question: str, deps: Deps) -> str:
         MAX_ITERATIONS = 4
         for iteration in range(MAX_ITERATIONS):
             force_final = (iteration == MAX_ITERATIONS - 1)
+
+            if force_final:
+                gathered = _gathered_results_text(messages)
+                final_messages = [
+                    {"role": "system", "content": SYSTEM},
+                    {"role": "user", "content": (
+                        f"{context}\n\nQuestion: {question}\n\n"
+                        f"Here is information already gathered from the knowledge base:\n\n{gathered}\n\n"
+                        "Using only this information, give a complete final answer now. "
+                        "Do not ask to search again."
+                    )}
+                ]
+                try:
+                    with logfire.span('llm_call', iteration=iteration, force_final=True):
+                        response = await groq_client.chat.completions.create(
+                            model=MODEL,
+                            messages=final_messages,
+                        )
+                except Exception:
+                    try:
+                        with logfire.span('llm_fallback', model=MODEL_FALLBACK):
+                            response = await groq_client.chat.completions.create(
+                                model=MODEL_FALLBACK,
+                                messages=final_messages,
+                            )
+                    except Exception as e:
+                        logfire.error('llm_call_failed', error=str(e), iteration=iteration)
+                        return _fallback_answer_from_tool_results(messages)
+
+                answer = response.choices[0].message.content or "No answer generated."
+                return re.sub(r'<think>.*?</think>', '', answer, flags=re.DOTALL).strip()
+
             try:
-                with logfire.span('llm_call', iteration=iteration, force_final=force_final):
-                    if force_final:
-                        response = await groq_client.chat.completions.create(
-                            model=MODEL,
-                            messages=messages,
-                        )
-                    else:
-                        response = await groq_client.chat.completions.create(
-                            model=MODEL,
-                            messages=messages,
-                            tools=TOOLS,
-                            tool_choice="auto",
-                        )
+                with logfire.span('llm_call', iteration=iteration, force_final=False):
+                    response = await groq_client.chat.completions.create(
+                        model=MODEL,
+                        messages=messages,
+                        tools=TOOLS,
+                        tool_choice="auto",
+                    )
                     logfire.info('llm_response',
                         input_tokens=response.usage.prompt_tokens if response.usage else 0,
                         output_tokens=response.usage.completion_tokens if response.usage else 0,
                     )
             except Exception:
-                # Primary model failed or is rate-limited - retry once on the
-                # fallback model, same tools-or-not rule as above.
                 try:
                     with logfire.span('llm_fallback', model=MODEL_FALLBACK):
-                        if force_final:
-                            response = await groq_client.chat.completions.create(
-                                model=MODEL_FALLBACK,
-                                messages=messages,
-                            )
-                        else:
-                            response = await groq_client.chat.completions.create(
-                                model=MODEL_FALLBACK,
-                                messages=messages,
-                                tools=TOOLS,
-                                tool_choice="auto",
-                            )
+                        response = await groq_client.chat.completions.create(
+                            model=MODEL_FALLBACK,
+                            messages=messages,
+                            tools=TOOLS,
+                            tool_choice="auto",
+                        )
                 except Exception as e:
-                    return f"An error occurred: {str(e)}"
+                    logfire.error('llm_call_failed', error=str(e), iteration=iteration)
+                    return _fallback_answer_from_tool_results(messages)
 
             msg = response.choices[0].message
             if not msg.tool_calls:
