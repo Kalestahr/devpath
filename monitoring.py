@@ -1,11 +1,28 @@
 import duckdb
+import time
 from datetime import datetime
 
 DB_PATH = 'devpath_pipeline.duckdb'
 
 
+def _connect_with_retry(retries: int = 3, delay: float = 0.3):
+    # docker-compose runs the api and ui services against the same duckdb
+    # file, and DuckDB needs an exclusive lock for writes, so a brief
+    # collision between the two services (or between Streamlit reruns) is
+    # expected occasionally. A few short retries ride out that window
+    # instead of surfacing a TransactionException to the user.
+    last_error = None
+    for attempt in range(retries):
+        try:
+            return duckdb.connect(DB_PATH)
+        except duckdb.TransactionException as e:
+            last_error = e
+            time.sleep(delay)
+    raise last_error
+
+
 def init_tables():
-    conn = duckdb.connect(DB_PATH)
+    conn = _connect_with_retry()
     conn.execute('CREATE SCHEMA IF NOT EXISTS devpath')
     conn.execute('''
         CREATE TABLE IF NOT EXISTS devpath.feedback_log (
@@ -25,7 +42,7 @@ def init_tables():
 
 
 def log_feedback(question: str, rating: int):
-    conn = duckdb.connect(DB_PATH)
+    conn = _connect_with_retry()
     conn.execute(
         'INSERT INTO devpath.feedback_log VALUES (?, ?, ?)',
         [question, rating, datetime.now()]
@@ -34,7 +51,7 @@ def log_feedback(question: str, rating: int):
 
 
 def log_query_time(question: str, seconds: float):
-    conn = duckdb.connect(DB_PATH)
+    conn = _connect_with_retry()
     conn.execute(
         'INSERT INTO devpath.query_times VALUES (?, ?, ?)',
         [question, seconds, datetime.now()]
@@ -43,7 +60,7 @@ def log_query_time(question: str, seconds: float):
 
 
 def get_feedback_log():
-    conn = duckdb.connect(DB_PATH)
+    conn = _connect_with_retry()
     rows = conn.execute(
         'SELECT question, rating, logged_at FROM devpath.feedback_log ORDER BY logged_at'
     ).fetchall()
@@ -52,7 +69,7 @@ def get_feedback_log():
 
 
 def get_query_times():
-    conn = duckdb.connect(DB_PATH)
+    conn = _connect_with_retry()
     rows = conn.execute(
         'SELECT seconds FROM devpath.query_times ORDER BY logged_at'
     ).fetchall()

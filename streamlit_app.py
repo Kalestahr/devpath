@@ -8,7 +8,12 @@ import os, json
 from agent import agent, Deps
 from monitoring import init_tables, log_feedback, log_query_time, get_feedback_log, get_query_times
 
-init_tables()
+@st.cache_resource
+def _ensure_monitoring_tables():
+    init_tables()
+    return True
+
+_ensure_monitoring_tables()
 
 API_URL = os.getenv('API_URL', 'http://localhost:8000')
 
