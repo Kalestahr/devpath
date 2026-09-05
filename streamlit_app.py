@@ -137,6 +137,7 @@ if st.session_state.page == "stats":
                 else:
                     counts[4] += 1
             df_buckets = pd.DataFrame({"Range": buckets, "Queries": counts})
+            df_buckets["Range"] = pd.Categorical(df_buckets["Range"], categories=buckets, ordered=True)
             st.bar_chart(df_buckets.set_index("Range"))
 
         query_log = get_query_log()
@@ -265,10 +266,6 @@ else:
         if prompt := st.chat_input("Ask about your tech career..."):
             st.session_state.messages.append({"role": "user", "content": prompt})
             st.session_state.pending_prompt = prompt
-            # Rerun immediately so the user message + disabled buttons render
-            # right away, before the slow agent call even starts. Without
-            # this, the buttons above stay clickable (and able to cancel the
-            # generation) for the entire duration of the query.
             st.rerun()
     else:
         st.chat_input("Ask about your tech career...", disabled=True)

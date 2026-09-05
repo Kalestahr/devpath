@@ -179,6 +179,8 @@ async def run_agent(question: str, deps: Deps) -> str:
                         response = await groq_client.chat.completions.create(
                             model=MODEL,
                             messages=final_messages,
+                            reasoning_effort="low",
+                            max_completion_tokens=1200,
                         )
                 except Exception:
                     try:
@@ -186,12 +188,17 @@ async def run_agent(question: str, deps: Deps) -> str:
                             response = await groq_client.chat.completions.create(
                                 model=MODEL_FALLBACK,
                                 messages=final_messages,
+                                reasoning_effort="low",
+                                max_completion_tokens=1200,
                             )
                     except Exception as e:
                         logfire.error('llm_call_failed', error=str(e), iteration=iteration)
                         return _fallback_answer_from_tool_results(messages)
 
-                answer = response.choices[0].message.content or "No answer generated."
+                answer = response.choices[0].message.content
+                if not answer:
+                    logfire.error('empty_content', iteration=iteration, finish_reason=response.choices[0].finish_reason)
+                    return _fallback_answer_from_tool_results(messages)
                 return re.sub(r'<think>.*?</think>', '', answer, flags=re.DOTALL).strip()
 
             try:
@@ -201,6 +208,8 @@ async def run_agent(question: str, deps: Deps) -> str:
                         messages=messages,
                         tools=TOOLS,
                         tool_choice="auto",
+                        reasoning_effort="low",
+                        max_completion_tokens=1200,
                     )
                     logfire.info('llm_response',
                         input_tokens=response.usage.prompt_tokens if response.usage else 0,
@@ -214,6 +223,8 @@ async def run_agent(question: str, deps: Deps) -> str:
                             messages=messages,
                             tools=TOOLS,
                             tool_choice="auto",
+                            reasoning_effort="low",
+                            max_completion_tokens=1200,
                         )
                 except Exception as e:
                     logfire.error('llm_call_failed', error=str(e), iteration=iteration)
@@ -221,8 +232,10 @@ async def run_agent(question: str, deps: Deps) -> str:
 
             msg = response.choices[0].message
             if not msg.tool_calls:
-                answer = msg.content or "No answer generated."
-                return re.sub(r'<think>.*?</think>', '', answer, flags=re.DOTALL).strip()
+                if not msg.content:
+                    logfire.error('empty_content', iteration=iteration, finish_reason=response.choices[0].finish_reason)
+                    return _fallback_answer_from_tool_results(messages)
+                return re.sub(r'<think>.*?</think>', '', msg.content, flags=re.DOTALL).strip()
 
             messages.append({
                 "role": "assistant",
