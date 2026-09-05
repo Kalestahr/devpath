@@ -95,7 +95,7 @@ if st.session_state.page == "stats":
     tab_usage, tab_retrieval, tab_dataset = st.tabs(["Live Usage", "Retrieval & Prompts", "Dataset"])
 
     with tab_usage:
-        st.caption("Live activity across all sessions, updates as people use the app.")
+        st.caption("Live activity across every visitor to this app (not just your own browser tab), updates as people use it.")
 
         col1, col2, col3, col4 = st.columns(4)
         col1.metric("Total Queries", len(times))
@@ -117,6 +117,9 @@ if st.session_state.page == "stats":
                 "Count": [n_positive, n_negative]
             })
             st.bar_chart(df_fb.set_index("Type"))
+        else:
+            st.markdown("**Feedback Distribution**")
+            st.caption("No feedback yet - go to Chat, ask a question, then click Helpful or Not helpful under the answer to populate this.")
 
         if times:
             st.markdown("**Response Time Distribution**")
@@ -152,6 +155,9 @@ if st.session_state.page == "stats":
             if not daily_fb.empty:
                 st.markdown("**Feedback per Day**")
                 st.bar_chart(daily_fb)
+        else:
+            st.markdown("**Feedback per Day**")
+            st.caption("No feedback yet - go to Chat, ask a question, then click Helpful or Not helpful under the answer to populate this.")
 
         if fb:
             st.markdown("**Recent Feedback**")
@@ -271,3 +277,7 @@ else:
             placeholder.empty()
             st.write(answer)
         st.session_state.messages.append({"role": "assistant", "content": answer})
+        # Rerun so the Helpful/Not helpful buttons render immediately under
+        # this new answer, instead of only appearing after the next
+        # unrelated rerun (e.g. clicking Chat/Stats).
+        st.rerun()
