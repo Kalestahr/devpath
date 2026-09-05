@@ -148,13 +148,18 @@ if st.session_state.page == "stats":
         if 'rag_evaluation' in eval_results:
             st.markdown("**RAG Prompt Comparison (LLM-as-Judge)**")
             rag = eval_results['rag_evaluation']
+            v1 = rag['prompt_v1_concise']['avg_score']
+            v2 = rag['prompt_v2_detailed']['avg_score']
+            improvement = round(v2 - v1, 2)
+            pct = round((improvement / v1) * 100) if v1 else 0
             col1, col2 = st.columns(2)
-            col1.metric("Prompt V1 (Concise)", f"{rag['prompt_v1_concise']['avg_score']}/5")
-            col2.metric("Prompt V2 (Detailed+Citations)", f"{rag['prompt_v2_detailed']['avg_score']}/5")
+            col1.metric("Prompt V1 (Concise)", f"{v1}/5")
+            col2.metric("Prompt V2 (Detailed+Citations)", f"{v2}/5", delta=f"+{improvement} ({pct}% better than V1)")
             st.success(f"Winner: {rag['winner']} - used in production agent")
+            st.caption("Scored 1-5 by an LLM judge on relevance and accuracy using a strict rubric, so scores in the 2-3 range are typical, not a sign the answers are poor.")
             df_rag = pd.DataFrame({
                 "Prompt": ["V1: concise", "V2: detailed + citations"],
-                "Avg Score": [rag['prompt_v1_concise']['avg_score'], rag['prompt_v2_detailed']['avg_score']],
+                "Avg Score": [v1, v2],
             })
             st.bar_chart(df_rag.set_index("Prompt"))
     except Exception:

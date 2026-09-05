@@ -130,27 +130,31 @@ async def run_agent(question: str, deps: Deps) -> str:
 
     with logfire.span('agent_run', question=question, region=deps.region, target_role=deps.target_role):
         for iteration in range(6):
+            # On the last allowed iteration, force a text answer instead of
+            # letting the model call a tool again and run out of turns.
+            force_final = (iteration == 5)
             try:
-                with logfire.span('llm_call', iteration=iteration):
+                with logfire.span('llm_call', iteration=iteration, force_final=force_final):
                     response = await groq_client.chat.completions.create(
                         model=MODEL,
                         messages=messages,
                         tools=TOOLS,
-                        tool_choice="auto",
+                        tool_choice="none" if force_final else "auto",
                     )
                     logfire.info('llm_response',
                         input_tokens=response.usage.prompt_tokens if response.usage else 0,
                         output_tokens=response.usage.completion_tokens if response.usage else 0,
                     )
             except Exception:
-                # Primary model
+                # Primary model failed or is rate-limited - retry once on the
+                # fallback model, first with tools, then without.
                 try:
                     with logfire.span('llm_fallback', model=MODEL_FALLBACK):
                         response = await groq_client.chat.completions.create(
                             model=MODEL_FALLBACK,
                             messages=messages,
                             tools=TOOLS,
-                            tool_choice="auto",
+                            tool_choice="none" if force_final else "auto",
                         )
                     msg = response.choices[0].message
                     if not msg.tool_calls:
@@ -196,7 +200,7 @@ async def run_agent(question: str, deps: Deps) -> str:
                     "content": result
                 })
 
-    return "Maximum search iterations reached."
+    return "I wasn't able to pull together a complete answer in time. Try rephrasing your question, or asking something a bit more specific."
 
 class AgentShim:
     async def run(self, question: str, deps: Deps = None):
