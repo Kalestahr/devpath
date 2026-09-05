@@ -1,14 +1,30 @@
 {
   "text": {
-    "hit_rate": 0.4111,
-    "mrr": 0.2143
+    "hit_rate": 0.4556,
+    "mrr": 0.38
   },
   "vector": {
-    "hit_rate": 0.2111,
-    "mrr": 0.0815
+    "hit_rate": 0.5778,
+    "mrr": 0.4702
   },
   "hybrid": {
-    "hit_rate": 0.3889,
-    "mrr": 0.2031
+    "hit_rate": 0.6667,
+    "mrr": 0.4893
+  },
+  "hybrid_reranked": {
+    "hit_rate": 0.6889,
+    "mrr": 0.6276
+  },
+  "best_retrieval_method": "hybrid_reranked",
+  "rag_evaluation": {
+    "prompt_v1_concise": {
+      "avg_score": 2.4,
+      "description": "Concise answers"
+    },
+    "prompt_v2_detailed": {
+      "avg_score": 2.9,
+      "description": "Detailed with citations"
+    },
+    "winner": "prompt_v2_detailed"
   }
 }

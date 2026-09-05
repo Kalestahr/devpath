@@ -1,0 +1,110 @@
+[
+  {
+    "id": "jb2025_architect",
+    "source": "jetbrains_2025",
+    "dev_type": "Architect",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Architect\nRespondents in this role: 3,730\n\nTOP LANGUAGES USED BY ARCHITECT IN 2025:\nJavaScript (68.1%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (63.8%), TypeScript (59.4%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (59.3%), Python (58.1%), HTML / CSS (57.7%), Java (49.5%), C# (31.8%)\n\nTOP COUNTRIES: United States: 445, Germany: 429, Poland: 174, France: 152, China Mainland: 147\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_business_analyst",
+    "source": "jetbrains_2025",
+    "dev_type": "Business Analyst",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Business Analyst\nRespondents in this role: 458\n\nTOP LANGUAGES USED BY BUSINESS ANALYST IN 2025:\nSQL (PL/SQL, T-SQL, or other programming extensions of SQL) (64.0%), JavaScript (62.9%), Python (60.0%), HTML / CSS (58.3%), Java (41.3%), TypeScript (40.6%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (40.0%), C# (27.3%)\n\nTOP COUNTRIES: United States: 47, China Mainland: 37, Other: 27, Brazil: 26, Germany: 22\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_cio___ceo___cto",
+    "source": "jetbrains_2025",
+    "dev_type": "CIO / CEO / CTO",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: CIO / CEO / CTO\nRespondents in this role: 1,174\n\nTOP LANGUAGES USED BY CIO / CEO / CTO IN 2025:\nJavaScript (75.6%), HTML / CSS (67.8%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (60.7%), TypeScript (59.8%), Python (58.3%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (49.1%), Java (35.6%), PHP (33.0%)\n\nTOP COUNTRIES: United States: 145, Germany: 91, United Kingdom: 60, France: 43, Korea, Republic of (South Korea): 43\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_dba",
+    "source": "jetbrains_2025",
+    "dev_type": "DBA",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: DBA\nRespondents in this role: 660\n\nTOP LANGUAGES USED BY DBA IN 2025:\nSQL (PL/SQL, T-SQL, or other programming extensions of SQL) (79.1%), JavaScript (75.9%), HTML / CSS (67.3%), Python (60.3%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (53.5%), TypeScript (51.7%), Java (46.7%), C# (35.3%)\n\nTOP COUNTRIES: United States: 84, China Mainland: 58, France: 46, Brazil: 35, Germany: 31\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_data_analyst___data_engineer___data_scientist",
+    "source": "jetbrains_2025",
+    "dev_type": "Data Analyst / Data Engineer / Data Scientist",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Data Analyst / Data Engineer / Data Scientist\nRespondents in this role: 1,571\n\nTOP LANGUAGES USED BY DATA ANALYST / DATA ENGINEER / DATA SCIENTIST IN 2025:\nPython (88.4%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (70.0%), JavaScript (52.8%), HTML / CSS (48.1%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (47.7%), Java (36.7%), TypeScript (32.2%), C++ (23.5%)\n\nTOP COUNTRIES: United States: 226, Germany: 129, India: 92, Brazil: 84, France: 63\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_devops_engineer___infrastructure_developer",
+    "source": "jetbrains_2025",
+    "dev_type": "DevOps Engineer / Infrastructure Developer",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: DevOps Engineer / Infrastructure Developer\nRespondents in this role: 2,707\n\nTOP LANGUAGES USED BY DEVOPS ENGINEER / INFRASTRUCTURE DEVELOPER IN 2025:\nJavaScript (70.8%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (68.3%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (65.9%), Python (65.8%), HTML / CSS (59.4%), TypeScript (58.2%), Java (47.2%), Go (34.6%)\n\nTOP COUNTRIES: Germany: 325, United States: 286, China Mainland: 172, France: 127, United Kingdom: 114\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_developer___programmer___software_engineer",
+    "source": "jetbrains_2025",
+    "dev_type": "Developer / Programmer / Software Engineer",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Developer / Programmer / Software Engineer\nRespondents in this role: 18,097\n\nTOP LANGUAGES USED BY DEVELOPER / PROGRAMMER / SOFTWARE ENGINEER IN 2025:\nJavaScript (66.4%), HTML / CSS (55.7%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (55.7%), Python (54.1%), TypeScript (52.8%), Java (47.2%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (45.3%), C# (26.5%)\n\nTOP COUNTRIES: United States: 1757, Germany: 1464, China Mainland: 1174, Korea, Republic of (South Korea): 798, United Kingdom: 791\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_developer_advocate",
+    "source": "jetbrains_2025",
+    "dev_type": "Developer Advocate",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Developer Advocate\nRespondents in this role: 384\n\nTOP LANGUAGES USED BY DEVELOPER ADVOCATE IN 2025:\nJavaScript (67.7%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (57.0%), HTML / CSS (56.5%), Python (56.0%), TypeScript (56.0%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (54.4%), Java (53.4%), C# (28.9%)\n\nTOP COUNTRIES: United States: 57, Germany: 35, China Mainland: 34, France: 21, United Kingdom: 18\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_developer_productivity___developer_experience_engi",
+    "source": "jetbrains_2025",
+    "dev_type": "Developer Productivity / Developer Experience Engineer",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Developer Productivity / Developer Experience Engineer\nRespondents in this role: 677\n\nTOP LANGUAGES USED BY DEVELOPER PRODUCTIVITY / DEVELOPER EXPERIENCE ENGINEER IN 2025:\nJavaScript (74.3%), HTML / CSS (64.0%), TypeScript (63.7%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (60.9%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (60.1%), Python (56.4%), Java (52.9%), Go (29.4%)\n\nTOP COUNTRIES: United States: 82, Germany: 72, China Mainland: 51, Korea, Republic of (South Korea): 42, India: 37\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_instructor___teacher___tutor",
+    "source": "jetbrains_2025",
+    "dev_type": "Instructor / Teacher / Tutor",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Instructor / Teacher / Tutor\nRespondents in this role: 794\n\nTOP LANGUAGES USED BY INSTRUCTOR / TEACHER / TUTOR IN 2025:\nJavaScript (68.9%), Python (65.6%), HTML / CSS (63.4%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (61.5%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (51.0%), Java (46.9%), TypeScript (46.0%), C# (29.2%)\n\nTOP COUNTRIES: Germany: 105, United States: 91, Brazil: 38, France: 38, Italy: 25\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_other",
+    "source": "jetbrains_2025",
+    "dev_type": "Other",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Other\nRespondents in this role: 402\n\nTOP LANGUAGES USED BY OTHER IN 2025:\nPython (67.7%), JavaScript (50.2%), HTML / CSS (46.8%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (44.0%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (41.8%), TypeScript (30.6%), Java (29.4%), C++ (25.9%)\n\nTOP COUNTRIES: United States: 73, Germany: 48, United Kingdom: 26, Poland: 17, Brazil: 15\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_product_manager___marketing_manager",
+    "source": "jetbrains_2025",
+    "dev_type": "Product Manager / Marketing Manager",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Product Manager / Marketing Manager\nRespondents in this role: 463\n\nTOP LANGUAGES USED BY PRODUCT MANAGER / MARKETING MANAGER IN 2025:\nJavaScript (73.9%), HTML / CSS (65.0%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (64.1%), Python (63.9%), TypeScript (48.6%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (46.2%), Java (37.4%), PHP (30.2%)\n\nTOP COUNTRIES: United States: 61, Germany: 46, China Mainland: 39, Japan: 30, India: 20\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_systems_analyst",
+    "source": "jetbrains_2025",
+    "dev_type": "Systems Analyst",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Systems Analyst\nRespondents in this role: 602\n\nTOP LANGUAGES USED BY SYSTEMS ANALYST IN 2025:\nJavaScript (74.4%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (66.8%), Python (62.3%), HTML / CSS (61.5%), Java (51.5%), TypeScript (47.8%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (47.2%), C# (35.0%)\n\nTOP COUNTRIES: Brazil: 131, United States: 62, China Mainland: 30, Mexico: 23, Germany: 21\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_team_lead",
+    "source": "jetbrains_2025",
+    "dev_type": "Team Lead",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Team Lead\nRespondents in this role: 3,046\n\nTOP LANGUAGES USED BY TEAM LEAD IN 2025:\nJavaScript (69.6%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (61.9%), TypeScript (59.7%), HTML / CSS (58.3%), Python (55.6%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (54.5%), Java (44.3%), C# (29.2%)\n\nTOP COUNTRIES: United States: 366, Germany: 223, United Kingdom: 173, Poland: 143, India: 140\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_technical_support_specialist",
+    "source": "jetbrains_2025",
+    "dev_type": "Technical Support Specialist",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Technical Support Specialist\nRespondents in this role: 489\n\nTOP LANGUAGES USED BY TECHNICAL SUPPORT SPECIALIST IN 2025:\nJavaScript (67.1%), HTML / CSS (66.1%), Python (59.5%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (58.7%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (48.9%), Java (45.2%), TypeScript (38.4%), C# (29.9%)\n\nTOP COUNTRIES: Germany: 50, China Mainland: 47, United States: 41, Brazil: 25, United Kingdom: 21\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_technical_writer",
+    "source": "jetbrains_2025",
+    "dev_type": "Technical Writer",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Technical Writer\nRespondents in this role: 428\n\nTOP LANGUAGES USED BY TECHNICAL WRITER IN 2025:\nJavaScript (68.0%), Python (63.8%), HTML / CSS (59.1%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (57.9%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (52.1%), Java (51.4%), TypeScript (42.8%), C++ (29.4%)\n\nTOP COUNTRIES: China Mainland: 72, Germany: 52, United States: 45, France: 35, India: 17\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_tester___qa_engineer",
+    "source": "jetbrains_2025",
+    "dev_type": "Tester / QA Engineer",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: Tester / QA Engineer\nRespondents in this role: 750\n\nTOP LANGUAGES USED BY TESTER / QA ENGINEER IN 2025:\nJavaScript (67.6%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (60.3%), Python (60.1%), HTML / CSS (57.6%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (50.5%), Java (50.3%), TypeScript (49.3%), C# (27.3%)\n\nTOP COUNTRIES: United States: 90, Germany: 76, China Mainland: 43, Poland: 37, France: 33\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  },
+  {
+    "id": "jb2025_ux___ui_designer",
+    "source": "jetbrains_2025",
+    "dev_type": "UX / UI Designer",
+    "content": "Source: JetBrains Developer Ecosystem Survey 2025\nOrganization: JetBrains (devecosystem-2025.jetbrains.com)\nLicense: Non-commercial use with attribution\nCoverage: 24,534 developers from 194 countries\nRole: UX / UI Designer\nRespondents in this role: 916\n\nTOP LANGUAGES USED BY UX / UI DESIGNER IN 2025:\nJavaScript (82.5%), HTML / CSS (79.7%), TypeScript (60.9%), Python (57.6%), SQL (PL/SQL, T-SQL, or other programming extensions of SQL) (57.5%), Shell scripting languages (Bash, Shell, PowerShell, etc.) (43.8%), Java (39.0%), PHP (33.3%)\n\nTOP COUNTRIES: United States: 119, Germany: 96, India: 43, Other: 41, France: 40\n\nNote: JetBrains 2025 survey covers 194 countries including strong Southeast Asia representation.\nData collected April-June 2025. Responses weighted by geography and employment status."
+  }
+]

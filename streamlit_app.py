@@ -3,9 +3,12 @@ load_dotenv()
 
 import asyncio
 import streamlit as st
-import os
+import os, json
+from datetime import datetime
 
 from agent import agent, Deps
+
+API_URL = os.getenv('API_URL', 'http://localhost:8000')
 
 st.set_page_config(
     page_title='DevPath',
@@ -32,6 +35,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Session state init
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+if "feedback_log" not in st.session_state:
+    st.session_state.feedback_log = []
+if "query_times" not in st.session_state:
+    st.session_state.query_times = []
+if "page" not in st.session_state:
+    st.session_state.page = "chat"
+
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("### Your profile")
@@ -47,60 +60,161 @@ with st.sidebar:
     st.divider()
     st.markdown('<p class="src-label">Data sources</p>', unsafe_allow_html=True)
     st.markdown("[Stack Overflow Survey 2024](https://survey.stackoverflow.co/2024/)")
+    st.markdown("[Stack Overflow Survey 2025](https://survey.stackoverflow.co/2025/)")
+    st.markdown("[JetBrains Ecosystem 2025](https://devecosystem-2025.jetbrains.com/)")
     st.markdown("[O\*NET 29.0 — US Dept of Labor](https://www.onetcenter.org/database.html)")
     st.markdown("[WEF Future of Jobs 2025](https://www.weforum.org/publications/the-future-of-jobs-report-2025/)")
     st.divider()
+
+    col1, col2 = st.columns(2)
+    if col1.button("Chat", use_container_width=True):
+        st.session_state.page = "chat"
+    if col2.button("Stats", use_container_width=True):
+        st.session_state.page = "stats"
+
     if st.button("Clear conversation", use_container_width=True):
         st.session_state.messages = []
         st.rerun()
 
-# ── Header ────────────────────────────────────────────────────────────────────
-st.markdown('<p class="dp-title">DevPath</p>', unsafe_allow_html=True)
-st.markdown('<p class="dp-sub">Tech career planning grounded in real developer data from 65,000+ respondents across 185 countries</p>', unsafe_allow_html=True)
-st.markdown('<div class="dp-badge"><span class="dp-dot"></span>Stack Overflow 2024 · O*NET 29.0 · WEF Future of Jobs 2025</div>', unsafe_allow_html=True)
-st.divider()
-
-# ── Chat ──────────────────────────────────────────────────────────────────────
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-if len(st.session_state.messages) == 0:
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown('<div class="ex-card">How do I become a data engineer with Python and SQL?</div>', unsafe_allow_html=True)
-    with col2:
-        st.markdown('<div class="ex-card">What skills are most in demand for ML engineers in 2024?</div>', unsafe_allow_html=True)
-    with col3:
-        st.markdown('<div class="ex-card">Is data science a viable career in Southeast Asia?</div>', unsafe_allow_html=True)
+# ── Stats Page ────────────────────────────────────────────────────────────────
+if st.session_state.page == "stats":
+    st.markdown('<p class="dp-title">DevPath</p>', unsafe_allow_html=True)
+    st.markdown("## Monitoring Dashboard")
     st.divider()
 
-for i, msg in enumerate(st.session_state.messages):
-    with st.chat_message(msg["role"]):
-        st.write(msg["content"])
-        if msg["role"] == "assistant":
-            col1, col2, _ = st.columns([1, 1, 8])
-            if col1.button("Helpful", key=f"up_{i}"):
-                st.toast("Thanks for the feedback!")
-            if col2.button("Not helpful", key=f"dn_{i}"):
-                st.toast("Thanks, we will improve!")
+    fb = st.session_state.feedback_log
+    times = st.session_state.query_times
+    msgs = st.session_state.messages
+    n_queries = len([m for m in msgs if m["role"] == "user"])
+    n_positive = sum(1 for f in fb if f["rating"] == 1)
+    n_negative = sum(1 for f in fb if f["rating"] == -1)
+    avg_time = round(sum(times) / len(times), 2) if times else 0
 
-if prompt := st.chat_input("Ask about your tech career..."):
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.write(prompt)
-    with st.chat_message("assistant"):
-        placeholder = st.empty()
-        placeholder.caption("Searching knowledge base...")
-        try:
-            deps = Deps(
-                skills=[s.strip() for s in skills_input.split(",") if s.strip()],
-                target_role=target_role,
-                region=region
-            )
-            result = asyncio.run(agent.run(prompt, deps=deps))
-            answer = result.output
-        except Exception as e:
-            answer = f"Error: {str(e)}"
-        placeholder.empty()
-        st.write(answer)
-    st.session_state.messages.append({"role": "assistant", "content": answer})
+    # Metric cards
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Total Queries", n_queries)
+    col2.metric("Positive Feedback", n_positive)
+    col3.metric("Negative Feedback", n_negative)
+    col4.metric("Avg Response Time", f"{avg_time}s")
+
+    st.divider()
+
+    if times:
+        import pandas as pd
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("**Response Times**")
+            df_times = pd.DataFrame({"Query": range(1, len(times)+1), "Seconds": times})
+            st.line_chart(df_times.set_index("Query"))
+
+        with col2:
+            st.markdown("**Feedback Distribution**")
+            if n_positive + n_negative > 0:
+                df_fb = pd.DataFrame({
+                    "Type": ["Positive", "Negative"],
+                    "Count": [n_positive, n_negative]
+                })
+                st.bar_chart(df_fb.set_index("Type"))
+            else:
+                st.caption("No feedback yet.")
+
+    if fb:
+        st.markdown("**Recent Feedback**")
+        for f in fb[-5:]:
+            emoji = "👍" if f["rating"] == 1 else "👎"
+            st.caption(f"{emoji} {f['question'][:80]}...")
+
+    st.divider()
+    st.markdown("**Evaluation Results**")
+    try:
+        with open('data/processed/eval_results.json') as f:
+            eval_results = json.load(f)
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Text Search Hit Rate", eval_results['text']['hit_rate'])
+        col2.metric("Text Search MRR", eval_results['text']['mrr'])
+        col3.metric("Selected Method", "text_search")
+
+        df_eval = {
+            "Method": ["text_search", "vector_search", "hybrid (RRF)"],
+            "Hit Rate": [eval_results['text']['hit_rate'], eval_results['vector']['hit_rate'], eval_results['hybrid']['hit_rate']],
+            "MRR": [eval_results['text']['mrr'], eval_results['vector']['mrr'], eval_results['hybrid']['mrr']],
+        }
+        import pandas as pd
+        st.dataframe(pd.DataFrame(df_eval), use_container_width=True)
+
+        if 'rag_evaluation' in eval_results:
+            st.markdown("**RAG Prompt Comparison (LLM-as-Judge)**")
+            rag = eval_results['rag_evaluation']
+            col1, col2 = st.columns(2)
+            col1.metric("Prompt V1 (Concise)", f"{rag['prompt_v1_concise']['avg_score']}/5")
+            col2.metric("Prompt V2 (Detailed+Citations)", f"{rag['prompt_v2_detailed']['avg_score']}/5")
+            st.success(f"Winner: {rag['winner']} - used in production agent")
+    except Exception:
+        st.caption("Run rag/evaluate.py to see evaluation results.")
+
+    st.divider()
+    st.markdown("**Dataset Coverage**")
+    data = {
+        "Source": ["SO Survey 2024", "SO Survey 2025", "JetBrains 2025", "O*NET 29.0", "WEF 2025"],
+        "Respondents": ["65,437", "49,191", "24,534", "900+ occupations", "55 economies"],
+        "Countries": ["185", "177", "194", "US (global standard)", "55"],
+        "Chunks": [34, 32, 18, 7, 96]
+    }
+    import pandas as pd
+    st.dataframe(pd.DataFrame(data), use_container_width=True)
+
+# ── Chat Page ─────────────────────────────────────────────────────────────────
+else:
+    st.markdown('<p class="dp-title">DevPath</p>', unsafe_allow_html=True)
+    st.markdown('<p class="dp-sub">Tech career planning grounded in real developer data from 65,000+ respondents across 185 countries</p>', unsafe_allow_html=True)
+    st.markdown('<div class="dp-badge"><span class="dp-dot"></span>SO 2024 · SO 2025 · JetBrains 2025 · O*NET 29.0 · WEF 2025</div>', unsafe_allow_html=True)
+    st.divider()
+
+    if len(st.session_state.messages) == 0:
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.markdown('<div class="ex-card">How do I become a data engineer with Python and SQL?</div>', unsafe_allow_html=True)
+        with col2:
+            st.markdown('<div class="ex-card">What skills are most in demand for ML engineers in 2025?</div>', unsafe_allow_html=True)
+        with col3:
+            st.markdown('<div class="ex-card">Is data science a viable career in Southeast Asia?</div>', unsafe_allow_html=True)
+        st.divider()
+
+    for i, msg in enumerate(st.session_state.messages):
+        with st.chat_message(msg["role"]):
+            st.write(msg["content"])
+            if msg["role"] == "assistant":
+                col1, col2, _ = st.columns([1, 1, 8])
+                if col1.button("Helpful", key=f"up_{i}"):
+                    prev_q = st.session_state.messages[i-1]["content"] if i > 0 else ""
+                    st.session_state.feedback_log.append({"question": prev_q, "rating": 1, "time": datetime.now().isoformat()})
+                    st.toast("Thanks for the feedback!")
+                if col2.button("Not helpful", key=f"dn_{i}"):
+                    prev_q = st.session_state.messages[i-1]["content"] if i > 0 else ""
+                    st.session_state.feedback_log.append({"question": prev_q, "rating": -1, "time": datetime.now().isoformat()})
+                    st.toast("Thanks, we will improve!")
+
+    if prompt := st.chat_input("Ask about your tech career..."):
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.write(prompt)
+        with st.chat_message("assistant"):
+            placeholder = st.empty()
+            placeholder.caption("Searching knowledge base...")
+            import time
+            start = time.time()
+            try:
+                deps = Deps(
+                    skills=[s.strip() for s in skills_input.split(",") if s.strip()],
+                    target_role=target_role,
+                    region=region
+                )
+                result = asyncio.run(agent.run(prompt, deps=deps))
+                answer = result.output
+            except Exception as e:
+                answer = f"Error: {str(e)}"
+            elapsed = round(time.time() - start, 2)
+            st.session_state.query_times.append(elapsed)
+            placeholder.empty()
+            st.write(answer)
+        st.session_state.messages.append({"role": "assistant", "content": answer})

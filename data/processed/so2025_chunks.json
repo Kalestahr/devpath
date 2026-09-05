@@ -1,0 +1,194 @@
+[
+  {
+    "id": "so2025_ai_ml_engineer",
+    "source": "stackoverflow_2025",
+    "dev_type": "AI/ML engineer",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: AI/ML engineer\nGlobal respondents: 677 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY AI/ML ENGINEER IN 2025:\nPython (94.3%), SQL (58.0%), Bash/Shell (all shells) (52.4%), JavaScript (49.4%), HTML/CSS (45.4%), TypeScript (30.8%), C++ (29.3%), Java (24.0%)\n\nDATABASES USED:\nPostgreSQL (63.1%), SQLite (40.8%), MySQL (39.7%), MongoDB (30.3%), Redis (29.5%), Elasticsearch (19.6%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 115, India: 61, United Kingdom of Great Britain and Northern Ireland: 31, France: 29, Germany: 27"
+  },
+  {
+    "id": "so2025_academic_researcher",
+    "source": "stackoverflow_2025",
+    "dev_type": "Academic researcher",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Academic researcher\nGlobal respondents: 1,131 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY ACADEMIC RESEARCHER IN 2025:\nPython (85.2%), Bash/Shell (all shells) (54.1%), HTML/CSS (45.4%), C++ (40.5%), JavaScript (40.2%), C (39.9%), SQL (29.5%), Java (24.5%)\n\nDATABASES USED:\nSQLite (60.7%), PostgreSQL (50.4%), MySQL (44.5%), MariaDB (28.0%), MongoDB (20.3%), Redis (14.4%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 173, Germany: 151, United Kingdom of Great Britain and Northern Ireland: 63, France: 63, Canada: 32"
+  },
+  {
+    "id": "so2025_applied_scientist",
+    "source": "stackoverflow_2025",
+    "dev_type": "Applied scientist",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Applied scientist\nGlobal respondents: 297 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY APPLIED SCIENTIST IN 2025:\nPython (82.7%), Bash/Shell (all shells) (54.7%), C++ (41.8%), HTML/CSS (40.9%), SQL (38.2%), JavaScript (38.2%), C (36.9%), MATLAB (25.3%)\n\nDATABASES USED:\nPostgreSQL (59.5%), SQLite (49.1%), MySQL (35.3%), MongoDB (25.0%), MariaDB (23.3%), Elasticsearch (20.7%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 80, Germany: 30, United Kingdom of Great Britain and Northern Ireland: 19, France: 16, India: 10"
+  },
+  {
+    "id": "so2025_architect_software_or_solutions",
+    "source": "stackoverflow_2025",
+    "dev_type": "Architect, software or solutions",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Architect, software or solutions\nGlobal respondents: 2,684 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY ARCHITECT, SOFTWARE OR SOLUTIONS IN 2025:\nJavaScript (70.0%), SQL (67.0%), HTML/CSS (62.1%), Python (57.2%), Bash/Shell (all shells) (51.7%), TypeScript (49.9%), C# (39.7%), Java (34.7%)\n\nDATABASES USED:\nPostgreSQL (61.9%), Microsoft SQL Server (41.4%), SQLite (38.2%), MySQL (37.5%), Redis (35.5%), Elasticsearch (26.6%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 440, Germany: 214, India: 155, United Kingdom of Great Britain and Northern Ireland: 120, France: 103"
+  },
+  {
+    "id": "so2025_cloud_infrastructure_engineer",
+    "source": "stackoverflow_2025",
+    "dev_type": "Cloud infrastructure engineer",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Cloud infrastructure engineer\nGlobal respondents: 441 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY CLOUD INFRASTRUCTURE ENGINEER IN 2025:\nBash/Shell (all shells) (77.4%), Python (74.7%), JavaScript (52.9%), Go (52.2%), SQL (50.5%), HTML/CSS (48.8%), TypeScript (39.4%), Java (30.0%)\n\nDATABASES USED:\nPostgreSQL (75.3%), Redis (45.4%), MySQL (39.8%), Elasticsearch (33.5%), SQLite (32.7%), Dynamodb (29.5%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 99, Germany: 32, United Kingdom of Great Britain and Northern Ireland: 18, Netherlands: 14, France: 14"
+  },
+  {
+    "id": "so2025_cybersecurity_or_infosec_professional",
+    "source": "stackoverflow_2025",
+    "dev_type": "Cybersecurity or InfoSec professional",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Cybersecurity or InfoSec professional\nGlobal respondents: 370 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY CYBERSECURITY OR INFOSEC PROFESSIONAL IN 2025:\nPython (83.5%), Bash/Shell (all shells) (69.4%), JavaScript (61.2%), SQL (54.0%), HTML/CSS (53.2%), PowerShell (47.1%), C (45.0%), Java (35.6%)\n\nDATABASES USED:\nPostgreSQL (63.0%), SQLite (59.2%), MySQL (54.5%), MariaDB (42.7%), MongoDB (38.4%), Microsoft SQL Server (34.6%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 84, Germany: 27, United Kingdom of Great Britain and Northern Ireland: 17, France: 14, Canada: 13"
+  },
+  {
+    "id": "so2025_data_engineer",
+    "source": "stackoverflow_2025",
+    "dev_type": "Data engineer",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Data engineer\nGlobal respondents: 770 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DATA ENGINEER IN 2025:\nPython (91.4%), SQL (82.2%), Bash/Shell (all shells) (56.8%), JavaScript (41.6%), HTML/CSS (37.9%), Java (24.5%), PowerShell (24.0%), TypeScript (17.8%)\n\nDATABASES USED:\nPostgreSQL (62.5%), Microsoft SQL Server (39.9%), MySQL (32.7%), SQLite (29.7%), BigQuery (25.2%), Databricks SQL (23.4%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 141, India: 47, Germany: 47, United Kingdom of Great Britain and Northern Ireland: 32, France: 31"
+  },
+  {
+    "id": "so2025_data_or_business_analyst",
+    "source": "stackoverflow_2025",
+    "dev_type": "Data or business analyst",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Data or business analyst\nGlobal respondents: 351 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DATA OR BUSINESS ANALYST IN 2025:\nSQL (76.4%), Python (75.5%), HTML/CSS (54.1%), JavaScript (45.1%), Bash/Shell (all shells) (36.1%), R (27.9%), PowerShell (27.0%), VBA (23.6%)\n\nDATABASES USED:\nMicrosoft SQL Server (55.0%), MySQL (39.2%), PostgreSQL (37.8%), SQLite (32.5%), Oracle (20.1%), Microsoft Access (18.2%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 59, India: 25, United Kingdom of Great Britain and Northern Ireland: 18, Canada: 17, Ukraine: 14"
+  },
+  {
+    "id": "so2025_data_scientist",
+    "source": "stackoverflow_2025",
+    "dev_type": "Data scientist",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Data scientist\nGlobal respondents: 574 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DATA SCIENTIST IN 2025:\nPython (90.2%), SQL (65.8%), Bash/Shell (all shells) (42.9%), R (41.3%), HTML/CSS (40.9%), JavaScript (34.9%), PowerShell (20.1%), C++ (17.6%)\n\nDATABASES USED:\nPostgreSQL (51.8%), SQLite (38.2%), MySQL (35.5%), Microsoft SQL Server (33.5%), MongoDB (19.7%), Databricks SQL (16.9%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 115, Germany: 48, India: 33, United Kingdom of Great Britain and Northern Ireland: 31, France: 28"
+  },
+  {
+    "id": "so2025_database_administrator_or_engineer",
+    "source": "stackoverflow_2025",
+    "dev_type": "Database administrator or engineer",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Database administrator or engineer\nGlobal respondents: 175 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DATABASE ADMINISTRATOR OR ENGINEER IN 2025:\nSQL (88.6%), Python (56.1%), Bash/Shell (all shells) (51.2%), HTML/CSS (45.5%), JavaScript (45.5%), PowerShell (37.4%), C# (30.9%), Java (22.0%)\n\nDATABASES USED:\nMicrosoft SQL Server (56.3%), PostgreSQL (42.9%), MySQL (38.9%), Oracle (27.8%), MariaDB (23.8%), SQLite (20.6%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 39, Germany: 13, Canada: 11, United Kingdom of Great Britain and Northern Ireland: 8, Netherlands: 5"
+  },
+  {
+    "id": "so2025_devops_engineer_or_professional",
+    "source": "stackoverflow_2025",
+    "dev_type": "DevOps engineer or professional",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: DevOps engineer or professional\nGlobal respondents: 1,053 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVOPS ENGINEER OR PROFESSIONAL IN 2025:\nBash/Shell (all shells) (78.2%), Python (77.0%), SQL (59.8%), JavaScript (53.2%), HTML/CSS (51.2%), Go (41.0%), TypeScript (36.8%), PowerShell (31.9%)\n\nDATABASES USED:\nPostgreSQL (71.1%), Redis (44.3%), MySQL (43.2%), SQLite (38.5%), Elasticsearch (33.9%), MariaDB (31.9%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 184, Germany: 103, France: 46, Canada: 43, India: 42"
+  },
+  {
+    "id": "so2025_developer_ai_apps_or_physical_ai",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, AI apps or physical AI",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, AI apps or physical AI\nGlobal respondents: 236 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, AI APPS OR PHYSICAL AI IN 2025:\nPython (78.1%), JavaScript (61.0%), HTML/CSS (58.9%), SQL (54.8%), Bash/Shell (all shells) (52.1%), TypeScript (43.8%), Java (31.5%), C++ (30.8%)\n\nDATABASES USED:\nPostgreSQL (64.2%), SQLite (47.5%), MySQL (44.2%), Redis (40.0%), MongoDB (39.2%), Microsoft SQL Server (32.5%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 31, India: 22, Germany: 11, Canada: 11, Australia: 6"
+  },
+  {
+    "id": "so2025_developer_qa_or_test",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, QA or test",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, QA or test\nGlobal respondents: 343 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, QA OR TEST IN 2025:\nPython (65.1%), JavaScript (63.1%), Bash/Shell (all shells) (52.2%), SQL (49.0%), HTML/CSS (48.2%), TypeScript (37.3%), Java (35.3%), PowerShell (27.7%)\n\nDATABASES USED:\nPostgreSQL (51.5%), Microsoft SQL Server (43.7%), MySQL (43.1%), SQLite (29.3%), MongoDB (25.1%), Elasticsearch (21.0%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 57, Ukraine: 36, India: 22, Germany: 17, United Kingdom of Great Britain and Northern Ireland: 14"
+  },
+  {
+    "id": "so2025_developer_back-end",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, back-end",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, back-end\nGlobal respondents: 6,453 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, BACK-END IN 2025:\nSQL (63.9%), JavaScript (56.6%), Python (54.4%), Bash/Shell (all shells) (50.7%), HTML/CSS (46.6%), TypeScript (37.0%), Java (36.6%), C# (24.6%)\n\nDATABASES USED:\nPostgreSQL (64.1%), Redis (41.3%), MySQL (38.2%), SQLite (31.1%), MongoDB (24.0%), Microsoft SQL Server (23.8%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 817, India: 383, Germany: 377, United Kingdom of Great Britain and Northern Ireland: 319, Ukraine: 268"
+  },
+  {
+    "id": "so2025_developer_desktop_or_enterprise_applications",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, desktop or enterprise applications",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, desktop or enterprise applications\nGlobal respondents: 1,919 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, DESKTOP OR ENTERPRISE APPLICATIONS IN 2025:\nSQL (56.5%), JavaScript (50.1%), HTML/CSS (49.0%), Python (48.6%), C# (46.9%), C++ (43.2%), Bash/Shell (all shells) (41.2%), PowerShell (32.1%)\n\nDATABASES USED:\nMicrosoft SQL Server (51.6%), SQLite (43.9%), PostgreSQL (41.9%), MySQL (32.4%), MariaDB (17.8%), Oracle (16.9%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 336, Germany: 177, United Kingdom of Great Britain and Northern Ireland: 92, Canada: 82, France: 64"
+  },
+  {
+    "id": "so2025_developer_embedded_applications_or_devices",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, embedded applications or devices",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, embedded applications or devices\nGlobal respondents: 1,274 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, EMBEDDED APPLICATIONS OR DEVICES IN 2025:\nC (80.0%), Python (78.3%), C++ (73.0%), Bash/Shell (all shells) (66.9%), JavaScript (33.5%), HTML/CSS (32.7%), Assembly (28.8%), Rust (23.8%)\n\nDATABASES USED:\nSQLite (53.5%), PostgreSQL (45.9%), MySQL (34.3%), MariaDB (24.1%), Microsoft SQL Server (16.1%), MongoDB (15.3%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 230, Germany: 114, United Kingdom of Great Britain and Northern Ireland: 68, France: 65, Poland: 50"
+  },
+  {
+    "id": "so2025_developer_front-end",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, front-end",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, front-end\nGlobal respondents: 1,974 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, FRONT-END IN 2025:\nJavaScript (92.6%), HTML/CSS (85.7%), TypeScript (77.3%), SQL (30.0%), Bash/Shell (all shells) (29.7%), Python (28.0%), PHP (18.5%), Java (14.8%)\n\nDATABASES USED:\nPostgreSQL (47.8%), MySQL (45.2%), MongoDB (34.0%), SQLite (27.9%), MariaDB (18.2%), Microsoft SQL Server (15.2%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 258, India: 164, Germany: 115, Ukraine: 101, United Kingdom of Great Britain and Northern Ireland: 66"
+  },
+  {
+    "id": "so2025_developer_full-stack",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, full-stack",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, full-stack\nGlobal respondents: 12,351 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, FULL-STACK IN 2025:\nJavaScript (87.1%), HTML/CSS (82.6%), SQL (72.4%), TypeScript (64.3%), Python (48.5%), Bash/Shell (all shells) (45.9%), C# (35.8%), Java (29.7%)\n\nDATABASES USED:\nPostgreSQL (57.6%), MySQL (44.1%), SQLite (36.6%), Microsoft SQL Server (35.5%), Redis (30.3%), MariaDB (25.9%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 2049, Germany: 850, India: 695, United Kingdom of Great Britain and Northern Ireland: 597, Canada: 387"
+  },
+  {
+    "id": "so2025_developer_game_or_graphics",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, game or graphics",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, game or graphics\nGlobal respondents: 451 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, GAME OR GRAPHICS IN 2025:\nC++ (65.3%), C# (55.6%), Python (49.2%), JavaScript (46.5%), HTML/CSS (43.2%), C (39.8%), Bash/Shell (all shells) (36.2%), SQL (24.6%)\n\nDATABASES USED:\nSQLite (46.4%), PostgreSQL (39.9%), MySQL (36.2%), MongoDB (26.1%), MariaDB (18.8%), Redis (17.4%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 82, Canada: 23, France: 22, Germany: 21, United Kingdom of Great Britain and Northern Ireland: 20"
+  },
+  {
+    "id": "so2025_developer_mobile",
+    "source": "stackoverflow_2025",
+    "dev_type": "Developer, mobile",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Developer, mobile\nGlobal respondents: 1,391 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY DEVELOPER, MOBILE IN 2025:\nKotlin (56.6%), Swift (52.5%), JavaScript (44.8%), Java (41.0%), HTML/CSS (36.0%), Python (34.5%), SQL (32.8%), Bash/Shell (all shells) (31.9%)\n\nDATABASES USED:\nSQLite (64.4%), PostgreSQL (35.3%), MySQL (34.0%), Cloud Firestore (24.5%), Firebase Realtime Database (24.1%), MongoDB (22.9%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 162, India: 145, Germany: 88, Poland: 51, United Kingdom of Great Britain and Northern Ireland: 46"
+  },
+  {
+    "id": "so2025_engineering_manager",
+    "source": "stackoverflow_2025",
+    "dev_type": "Engineering manager",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Engineering manager\nGlobal respondents: 1,068 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY ENGINEERING MANAGER IN 2025:\nJavaScript (68.5%), SQL (62.8%), Python (61.8%), HTML/CSS (59.9%), TypeScript (51.3%), Bash/Shell (all shells) (49.7%), Java (28.9%), C# (27.5%)\n\nDATABASES USED:\nPostgreSQL (63.8%), Redis (42.2%), MySQL (38.7%), SQLite (34.7%), Microsoft SQL Server (28.6%), Elasticsearch (26.3%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 259, United Kingdom of Great Britain and Northern Ireland: 66, Germany: 60, India: 49, Canada: 38"
+  },
+  {
+    "id": "so2025_financial_analyst_or_engineer",
+    "source": "stackoverflow_2025",
+    "dev_type": "Financial analyst or engineer",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Financial analyst or engineer\nGlobal respondents: 94 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY FINANCIAL ANALYST OR ENGINEER IN 2025:\nPython (81.2%), SQL (62.3%), Bash/Shell (all shells) (36.2%), JavaScript (36.2%), HTML/CSS (33.3%), C++ (29.0%), R (27.5%), VBA (27.5%)\n\nDATABASES USED:\nPostgreSQL (46.3%), Microsoft SQL Server (46.3%), SQLite (37.0%), MySQL (31.5%), Oracle (25.9%), Microsoft Access (24.1%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 22, United Kingdom of Great Britain and Northern Ireland: 9, Switzerland: 7, Spain: 5, Brazil: 4"
+  },
+  {
+    "id": "so2025_founder_technology_or_otherwise",
+    "source": "stackoverflow_2025",
+    "dev_type": "Founder, technology or otherwise",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Founder, technology or otherwise\nGlobal respondents: 431 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY FOUNDER, TECHNOLOGY OR OTHERWISE IN 2025:\nJavaScript (77.1%), HTML/CSS (69.7%), Python (62.2%), SQL (61.6%), TypeScript (52.9%), Bash/Shell (all shells) (52.0%), Rust (23.8%), Go (20.7%)\n\nDATABASES USED:\nPostgreSQL (71.7%), SQLite (45.5%), Redis (39.2%), MySQL (37.4%), MongoDB (24.5%), Microsoft SQL Server (22.0%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 98, United Kingdom of Great Britain and Northern Ireland: 25, India: 23, Australia: 18, Germany: 17"
+  },
+  {
+    "id": "so2025_other",
+    "source": "stackoverflow_2025",
+    "dev_type": "Other",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Other\nGlobal respondents: 1,825 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY OTHER IN 2025:\nPython (66.0%), JavaScript (61.4%), HTML/CSS (60.4%), Bash/Shell (all shells) (51.3%), SQL (46.6%), C++ (31.1%), C (30.6%), TypeScript (29.4%)\n\nDATABASES USED:\nSQLite (49.0%), PostgreSQL (48.2%), MySQL (44.0%), Microsoft SQL Server (26.7%), MariaDB (24.8%), MongoDB (22.2%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 428, Germany: 116, United Kingdom of Great Britain and Northern Ireland: 97, India: 60, Canada: 58"
+  },
+  {
+    "id": "so2025_product_manager",
+    "source": "stackoverflow_2025",
+    "dev_type": "Product manager",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Product manager\nGlobal respondents: 205 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY PRODUCT MANAGER IN 2025:\nJavaScript (62.6%), Python (61.1%), SQL (60.3%), HTML/CSS (58.0%), Bash/Shell (all shells) (37.4%), TypeScript (27.5%), Java (24.4%), C# (22.1%)\n\nDATABASES USED:\nPostgreSQL (41.7%), SQLite (36.1%), MySQL (32.4%), Microsoft SQL Server (31.5%), MongoDB (21.3%), MariaDB (15.7%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 45, Germany: 16, Italy: 11, India: 8, Canada: 7"
+  },
+  {
+    "id": "so2025_project_manager",
+    "source": "stackoverflow_2025",
+    "dev_type": "Project manager",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Project manager\nGlobal respondents: 302 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY PROJECT MANAGER IN 2025:\nJavaScript (63.7%), SQL (62.3%), HTML/CSS (60.8%), Python (59.8%), Bash/Shell (all shells) (42.2%), TypeScript (29.4%), PowerShell (28.9%), Java (25.5%)\n\nDATABASES USED:\nPostgreSQL (49.7%), MySQL (43.8%), Microsoft SQL Server (42.0%), SQLite (35.5%), MariaDB (29.0%), MongoDB (19.5%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 37, Germany: 35, India: 19, United Kingdom of Great Britain and Northern Ireland: 15, France: 13"
+  },
+  {
+    "id": "so2025_retired",
+    "source": "stackoverflow_2025",
+    "dev_type": "Retired",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Retired\nGlobal respondents: 458 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY RETIRED IN 2025:\nHTML/CSS (47.8%), Python (46.5%), JavaScript (42.4%), Bash/Shell (all shells) (39.2%), SQL (34.1%), C (32.8%), C++ (24.2%), C# (21.3%)\n\nDATABASES USED:\nMySQL (47.2%), SQLite (45.4%), PostgreSQL (33.7%), Microsoft SQL Server (28.2%), MariaDB (27.6%), Microsoft Access (14.1%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 151, United Kingdom of Great Britain and Northern Ireland: 52, Canada: 33, Australia: 24, Germany: 15"
+  },
+  {
+    "id": "so2025_senior_executive_(c-suite_vp_etc.)",
+    "source": "stackoverflow_2025",
+    "dev_type": "Senior executive (C-suite, VP, etc.)",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Senior executive (C-suite, VP, etc.)\nGlobal respondents: 528 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY SENIOR EXECUTIVE (C-SUITE, VP, ETC.) IN 2025:\nJavaScript (74.2%), SQL (72.9%), HTML/CSS (68.1%), Python (64.1%), TypeScript (53.4%), Bash/Shell (all shells) (52.4%), C# (30.6%), PowerShell (28.6%)\n\nDATABASES USED:\nPostgreSQL (65.4%), MySQL (41.0%), Redis (40.7%), SQLite (40.7%), Microsoft SQL Server (30.9%), MariaDB (27.1%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 117, United Kingdom of Great Britain and Northern Ireland: 32, France: 25, India: 23, Germany: 22"
+  },
+  {
+    "id": "so2025_student",
+    "source": "stackoverflow_2025",
+    "dev_type": "Student",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Student\nGlobal respondents: 3,008 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY STUDENT IN 2025:\nPython (77.0%), HTML/CSS (68.6%), JavaScript (64.2%), C (53.5%), Bash/Shell (all shells) (50.9%), C++ (48.9%), SQL (46.2%), Java (42.9%)\n\nDATABASES USED:\nMySQL (51.9%), SQLite (47.5%), PostgreSQL (45.4%), MongoDB (30.7%), MariaDB (23.5%), Microsoft SQL Server (14.8%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 365, India: 359, Germany: 216, France: 93, United Kingdom of Great Britain and Northern Ireland: 83"
+  },
+  {
+    "id": "so2025_support_engineer_or_analyst",
+    "source": "stackoverflow_2025",
+    "dev_type": "Support engineer or analyst",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: Support engineer or analyst\nGlobal respondents: 251 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY SUPPORT ENGINEER OR ANALYST IN 2025:\nPython (69.9%), Bash/Shell (all shells) (57.2%), SQL (56.6%), JavaScript (54.9%), HTML/CSS (52.0%), PowerShell (29.5%), Java (27.7%), C (26.6%)\n\nDATABASES USED:\nPostgreSQL (49.6%), MySQL (46.7%), SQLite (37.0%), Microsoft SQL Server (34.8%), MariaDB (26.7%), MongoDB (25.2%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 52, Germany: 12, United Kingdom of Great Britain and Northern Ireland: 12, India: 12, France: 10"
+  },
+  {
+    "id": "so2025_system_administrator",
+    "source": "stackoverflow_2025",
+    "dev_type": "System administrator",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: System administrator\nGlobal respondents: 480 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY SYSTEM ADMINISTRATOR IN 2025:\nBash/Shell (all shells) (67.4%), Python (65.1%), HTML/CSS (61.4%), SQL (60.8%), JavaScript (55.6%), PowerShell (45.0%), PHP (37.8%), C (25.6%)\n\nDATABASES USED:\nPostgreSQL (55.2%), MySQL (49.7%), MariaDB (49.3%), SQLite (47.9%), Microsoft SQL Server (43.8%), Redis (21.5%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 88, Germany: 37, France: 21, United Kingdom of Great Britain and Northern Ireland: 17, Poland: 14"
+  },
+  {
+    "id": "so2025_ux_research_ops_or_ui_design_professional",
+    "source": "stackoverflow_2025",
+    "dev_type": "UX, Research Ops or UI design professional",
+    "content": "Source: Stack Overflow Developer Survey 2025\nOrganization: Stack Overflow (survey.stackoverflow.co/2025/)\nLicense: Open Database License (ODbL)\nRole: UX, Research Ops or UI design professional\nGlobal respondents: 115 developers from 177 countries\n\nPROGRAMMING LANGUAGES USED BY UX, RESEARCH OPS OR UI DESIGN PROFESSIONAL IN 2025:\nHTML/CSS (82.5%), JavaScript (82.5%), TypeScript (42.9%), Python (38.1%), SQL (34.9%), PHP (31.7%), Bash/Shell (all shells) (25.4%), C# (20.6%)\n\nDATABASES USED:\nMySQL (69.0%), PostgreSQL (55.2%), SQLite (48.3%), MariaDB (37.9%), MongoDB (34.5%), Supabase (34.5%)\n\nAI TOOLS USED IN 2025:\nSee survey for details\n\nEXPERIENCE: Median not reported professional coding\n\nTOP COUNTRIES: United States of America: 20, India: 8, United Kingdom of Great Britain and Northern Ireland: 7, Netherlands: 4, Ukraine: 4"
+  }
+]

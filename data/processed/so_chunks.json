@@ -1,147 +1,147 @@
 [
   {
-    "id": "so_1.0",
+    "id": "so_academic_researcher",
     "source": "stackoverflow_2024",
-    "dev_type": "1.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 1.0\nGlobal respondents: 1,238 developers\nMedian professional experience: 5 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 250 developers\n- Germany: 209 developers\n- United Kingdom of Great Britain and Northern Ireland: 69 developers\n- France: 64 developers\n- Canada: 44 developers\n- India: 36 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Academic researcher",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Academic researcher\nGlobal respondents: 1,238 developers\nMedian professional experience: 5 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 250 developers\n- Germany: 209 developers\n- United Kingdom of Great Britain and Northern Ireland: 69 developers\n- France: 64 developers\n- Canada: 44 developers\n- India: 36 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_10.0",
+    "id": "so_developer_desktop_or_enterprise_applications",
     "source": "stackoverflow_2024",
-    "dev_type": "10.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 10.0\nGlobal respondents: 224 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 54 developers\n- India: 17 developers\n- Germany: 13 developers\n- Canada: 11 developers\n- United Kingdom of Great Britain and Northern Ireland: 10 developers\n- Ukraine: 9 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Developer, desktop or enterprise applications",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Developer, desktop or enterprise applications\nGlobal respondents: 224 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 54 developers\n- India: 17 developers\n- Germany: 13 developers\n- Canada: 11 developers\n- United Kingdom of Great Britain and Northern Ireland: 10 developers\n- Ukraine: 9 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_11.0",
+    "id": "so_developer_embedded_applications_or_devices",
     "source": "stackoverflow_2024",
-    "dev_type": "11.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 11.0\nGlobal respondents: 543 developers\nMedian professional experience: 5 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 109 developers\n- India: 59 developers\n- Germany: 38 developers\n- United Kingdom of Great Britain and Northern Ireland: 20 developers\n- Netherlands: 18 developers\n- Ukraine: 16 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Developer, embedded applications or devices",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Developer, embedded applications or devices\nGlobal respondents: 543 developers\nMedian professional experience: 5 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 109 developers\n- India: 59 developers\n- Germany: 38 developers\n- United Kingdom of Great Britain and Northern Ireland: 20 developers\n- Netherlands: 18 developers\n- Ukraine: 16 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_12.0",
+    "id": "so_developer_front-end",
     "source": "stackoverflow_2024",
-    "dev_type": "12.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 12.0\nGlobal respondents: 9,928 developers\nMedian professional experience: 8 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 1479 developers\n- Ukraine: 780 developers\n- Germany: 675 developers\n- India: 671 developers\n- United Kingdom of Great Britain and Northern Ireland: 500 developers\n- Poland: 385 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Developer, front-end",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Developer, front-end\nGlobal respondents: 9,928 developers\nMedian professional experience: 8 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 1479 developers\n- Ukraine: 780 developers\n- Germany: 675 developers\n- India: 671 developers\n- United Kingdom of Great Britain and Northern Ireland: 500 developers\n- Poland: 385 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_13.0",
+    "id": "so_developer_full-stack",
     "source": "stackoverflow_2024",
-    "dev_type": "13.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 13.0\nGlobal respondents: 2,493 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 460 developers\n- Germany: 280 developers\n- United Kingdom of Great Britain and Northern Ireland: 127 developers\n- Canada: 108 developers\n- France: 106 developers\n- India: 104 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Developer, full-stack",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Developer, full-stack\nGlobal respondents: 2,493 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 460 developers\n- Germany: 280 developers\n- United Kingdom of Great Britain and Northern Ireland: 127 developers\n- Canada: 108 developers\n- France: 106 developers\n- India: 104 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_14.0",
+    "id": "so_developer_game_or_graphics",
     "source": "stackoverflow_2024",
-    "dev_type": "14.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 14.0\nGlobal respondents: 1,623 developers\nMedian professional experience: 8 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 371 developers\n- Germany: 224 developers\n- United Kingdom of Great Britain and Northern Ireland: 89 developers\n- Poland: 74 developers\n- France: 66 developers\n- Canada: 57 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Developer, game or graphics",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Developer, game or graphics\nGlobal respondents: 1,623 developers\nMedian professional experience: 8 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 371 developers\n- Germany: 224 developers\n- United Kingdom of Great Britain and Northern Ireland: 89 developers\n- Poland: 74 developers\n- France: 66 developers\n- Canada: 57 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_15.0",
+    "id": "so_developer_mobile",
     "source": "stackoverflow_2024",
-    "dev_type": "15.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 15.0\nGlobal respondents: 3,349 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 410 developers\n- India: 309 developers\n- Ukraine: 306 developers\n- Germany: 211 developers\n- United Kingdom of Great Britain and Northern Ireland: 138 developers\n- Poland: 98 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Developer, mobile",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Developer, mobile\nGlobal respondents: 3,349 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 410 developers\n- India: 309 developers\n- Ukraine: 306 developers\n- Germany: 211 developers\n- United Kingdom of Great Britain and Northern Ireland: 138 developers\n- Poland: 98 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_16.0",
+    "id": "so_engineer_site_reliability",
     "source": "stackoverflow_2024",
-    "dev_type": "16.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 16.0\nGlobal respondents: 18,260 developers\nMedian professional experience: 8 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 3451 developers\n- Germany: 1441 developers\n- India: 1276 developers\n- United Kingdom of Great Britain and Northern Ireland: 1023 developers\n- Canada: 678 developers\n- France: 670 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Engineer, site reliability",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Engineer, site reliability\nGlobal respondents: 18,260 developers\nMedian professional experience: 8 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 3451 developers\n- Germany: 1441 developers\n- India: 1276 developers\n- United Kingdom of Great Britain and Northern Ireland: 1023 developers\n- Canada: 678 developers\n- France: 670 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_17.0",
+    "id": "so_engineering_manager",
     "source": "stackoverflow_2024",
-    "dev_type": "17.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 17.0\nGlobal respondents: 706 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 136 developers\n- Ukraine: 55 developers\n- Canada: 45 developers\n- Germany: 44 developers\n- United Kingdom of Great Britain and Northern Ireland: 40 developers\n- France: 26 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Engineering manager",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Engineering manager\nGlobal respondents: 706 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 136 developers\n- Ukraine: 55 developers\n- Canada: 45 developers\n- Germany: 44 developers\n- United Kingdom of Great Britain and Northern Ireland: 40 developers\n- France: 26 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_18.0",
+    "id": "so_hardware_engineer",
     "source": "stackoverflow_2024",
-    "dev_type": "18.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 18.0\nGlobal respondents: 2,021 developers\nMedian professional experience: 7 years\n \nREGIONAL DISTRIBUTION (top countries):\n- India: 247 developers\n- United States of America: 223 developers\n- Ukraine: 158 developers\n- Germany: 143 developers\n- United Kingdom of Great Britain and Northern Ireland: 86 developers\n- Spain: 54 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Hardware Engineer",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Hardware Engineer\nGlobal respondents: 2,021 developers\nMedian professional experience: 7 years\n \nREGIONAL DISTRIBUTION (top countries):\n- India: 247 developers\n- United States of America: 223 developers\n- Ukraine: 158 developers\n- Germany: 143 developers\n- United Kingdom of Great Britain and Northern Ireland: 86 developers\n- Spain: 54 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_19.0",
+    "id": "so_marketing_or_sales_professional",
     "source": "stackoverflow_2024",
-    "dev_type": "19.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 19.0\nGlobal respondents: 525 developers\nMedian professional experience: 5 years\n \nREGIONAL DISTRIBUTION (top countries):\n- Ukraine: 114 developers\n- United States of America: 89 developers\n- India: 41 developers\n- Germany: 29 developers\n- United Kingdom of Great Britain and Northern Ireland: 18 developers\n- Poland: 16 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Marketing or sales professional",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Marketing or sales professional\nGlobal respondents: 525 developers\nMedian professional experience: 5 years\n \nREGIONAL DISTRIBUTION (top countries):\n- Ukraine: 114 developers\n- United States of America: 89 developers\n- India: 41 developers\n- Germany: 29 developers\n- United Kingdom of Great Britain and Northern Ireland: 18 developers\n- Poland: 16 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_2.0",
+    "id": "so_cloud_infrastructure_engineer",
     "source": "stackoverflow_2024",
-    "dev_type": "2.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 2.0\nGlobal respondents: 235 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- Ukraine: 24 developers\n- United States of America: 23 developers\n- India: 17 developers\n- Canada: 9 developers\n- Germany: 9 developers\n- Poland: 8 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Cloud infrastructure engineer",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Cloud infrastructure engineer\nGlobal respondents: 235 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- Ukraine: 24 developers\n- United States of America: 23 developers\n- India: 17 developers\n- Canada: 9 developers\n- Germany: 9 developers\n- Poland: 8 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_20.0",
+    "id": "so_product_manager",
     "source": "stackoverflow_2024",
-    "dev_type": "20.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 20.0\nGlobal respondents: 1,019 developers\nMedian professional experience: 8 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 156 developers\n- Germany: 108 developers\n- France: 62 developers\n- Ukraine: 57 developers\n- India: 52 developers\n- United Kingdom of Great Britain and Northern Ireland: 52 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Product manager",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Product manager\nGlobal respondents: 1,019 developers\nMedian professional experience: 8 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 156 developers\n- Germany: 108 developers\n- France: 62 developers\n- Ukraine: 57 developers\n- India: 52 developers\n- United Kingdom of Great Britain and Northern Ireland: 52 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_21.0",
+    "id": "so_project_manager",
     "source": "stackoverflow_2024",
-    "dev_type": "21.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 21.0\nGlobal respondents: 355 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 93 developers\n- Germany: 24 developers\n- United Kingdom of Great Britain and Northern Ireland: 17 developers\n- France: 15 developers\n- Canada: 12 developers\n- India: 12 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Project manager",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Project manager\nGlobal respondents: 355 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 93 developers\n- Germany: 24 developers\n- United Kingdom of Great Britain and Northern Ireland: 17 developers\n- France: 15 developers\n- Canada: 12 developers\n- India: 12 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_22.0",
+    "id": "so_research_and_development_role",
     "source": "stackoverflow_2024",
-    "dev_type": "22.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 22.0\nGlobal respondents: 310 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 83 developers\n- Germany: 20 developers\n- United Kingdom of Great Britain and Northern Ireland: 18 developers\n- France: 15 developers\n- India: 14 developers\n- Canada: 11 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Research and Development role",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Research and Development role\nGlobal respondents: 310 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 83 developers\n- Germany: 20 developers\n- United Kingdom of Great Britain and Northern Ireland: 18 developers\n- France: 15 developers\n- India: 14 developers\n- Canada: 11 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_23.0",
+    "id": "so_scientist",
     "source": "stackoverflow_2024",
-    "dev_type": "23.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 23.0\nGlobal respondents: 1,275 developers\nMedian professional experience: 14 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 348 developers\n- United Kingdom of Great Britain and Northern Ireland: 93 developers\n- Germany: 85 developers\n- Canada: 59 developers\n- India: 52 developers\n- France: 49 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Scientist",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Scientist\nGlobal respondents: 1,275 developers\nMedian professional experience: 14 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 348 developers\n- United Kingdom of Great Britain and Northern Ireland: 93 developers\n- Germany: 85 developers\n- Canada: 59 developers\n- India: 52 developers\n- France: 49 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_24.0",
+    "id": "so_security_professional",
     "source": "stackoverflow_2024",
-    "dev_type": "24.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 24.0\nGlobal respondents: 200 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 51 developers\n- Canada: 13 developers\n- Germany: 11 developers\n- India: 10 developers\n- United Kingdom of Great Britain and Northern Ireland: 10 developers\n- Switzerland: 8 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Security professional",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Security professional\nGlobal respondents: 200 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 51 developers\n- Canada: 13 developers\n- Germany: 11 developers\n- India: 10 developers\n- United Kingdom of Great Britain and Northern Ireland: 10 developers\n- Switzerland: 8 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_25.0",
+    "id": "so_senior_executive",
     "source": "stackoverflow_2024",
-    "dev_type": "25.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 25.0\nGlobal respondents: 96 developers\nMedian professional experience: 5 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 25 developers\n- Italy: 4 developers\n- South Africa: 4 developers\n- Canada: 4 developers\n- Netherlands: 3 developers\n- United Kingdom of Great Britain and Northern Ireland: 3 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Senior Executive",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Senior Executive\nGlobal respondents: 96 developers\nMedian professional experience: 5 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 25 developers\n- Italy: 4 developers\n- South Africa: 4 developers\n- Canada: 4 developers\n- Netherlands: 3 developers\n- United Kingdom of Great Britain and Northern Ireland: 3 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_26.0",
+    "id": "so_student",
     "source": "stackoverflow_2024",
-    "dev_type": "26.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 26.0\nGlobal respondents: 2,458 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 637 developers\n- Germany: 202 developers\n- United Kingdom of Great Britain and Northern Ireland: 177 developers\n- India: 104 developers\n- Canada: 100 developers\n- France: 84 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Student",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Student\nGlobal respondents: 2,458 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 637 developers\n- Germany: 202 developers\n- United Kingdom of Great Britain and Northern Ireland: 177 developers\n- India: 104 developers\n- Canada: 100 developers\n- France: 84 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_27.0",
+    "id": "so_system_administrator",
     "source": "stackoverflow_2024",
-    "dev_type": "27.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 27.0\nGlobal respondents: 290 developers\nMedian professional experience: 13 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 50 developers\n- Germany: 24 developers\n- India: 21 developers\n- United Kingdom of Great Britain and Northern Ireland: 20 developers\n- Australia: 15 developers\n- France: 10 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "System administrator",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: System administrator\nGlobal respondents: 290 developers\nMedian professional experience: 13 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 50 developers\n- Germany: 24 developers\n- India: 21 developers\n- United Kingdom of Great Britain and Northern Ireland: 20 developers\n- Australia: 15 developers\n- France: 10 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_28.0",
+    "id": "so_teacher_or_educator",
     "source": "stackoverflow_2024",
-    "dev_type": "28.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 28.0\nGlobal respondents: 418 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 54 developers\n- Germany: 51 developers\n- India: 42 developers\n- Italy: 28 developers\n- France: 17 developers\n- Ukraine: 16 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Teacher or educator",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Teacher or educator\nGlobal respondents: 418 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 54 developers\n- Germany: 51 developers\n- India: 42 developers\n- Italy: 28 developers\n- France: 17 developers\n- Ukraine: 16 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_29.0",
+    "id": "so_technical_writer",
     "source": "stackoverflow_2024",
-    "dev_type": "29.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 29.0\nGlobal respondents: 943 developers\nMedian professional experience: 9 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 207 developers\n- Germany: 95 developers\n- United Kingdom of Great Britain and Northern Ireland: 55 developers\n- India: 54 developers\n- France: 50 developers\n- Italy: 28 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Technical writer",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Technical writer\nGlobal respondents: 943 developers\nMedian professional experience: 9 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 207 developers\n- Germany: 95 developers\n- United Kingdom of Great Britain and Northern Ireland: 55 developers\n- India: 54 developers\n- France: 50 developers\n- Italy: 28 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_3.0",
+    "id": "so_data_or_business_analyst",
     "source": "stackoverflow_2024",
-    "dev_type": "3.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 3.0\nGlobal respondents: 634 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 153 developers\n- Germany: 61 developers\n- United Kingdom of Great Britain and Northern Ireland: 37 developers\n- Canada: 30 developers\n- India: 30 developers\n- Netherlands: 21 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Data or business analyst",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Data or business analyst\nGlobal respondents: 634 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 153 developers\n- Germany: 61 developers\n- United Kingdom of Great Britain and Northern Ireland: 37 developers\n- Canada: 30 developers\n- India: 30 developers\n- Netherlands: 21 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_30.0",
+    "id": "so_other",
     "source": "stackoverflow_2024",
-    "dev_type": "30.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 30.0\nGlobal respondents: 332 developers\nMedian professional experience: 7 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 108 developers\n- Germany: 30 developers\n- United Kingdom of Great Britain and Northern Ireland: 27 developers\n- France: 17 developers\n- Canada: 14 developers\n- Australia: 10 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Other",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Other\nGlobal respondents: 332 developers\nMedian professional experience: 7 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 108 developers\n- Germany: 30 developers\n- United Kingdom of Great Britain and Northern Ireland: 27 developers\n- France: 17 developers\n- Canada: 14 developers\n- Australia: 10 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
     "id": "so_31.0",
@@ -168,39 +168,39 @@
     "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 34.0\nGlobal respondents: 552 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 122 developers\n- Germany: 64 developers\n- Canada: 23 developers\n- United Kingdom of Great Britain and Northern Ireland: 22 developers\n- Poland: 21 developers\n- Ukraine: 20 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_4.0",
+    "id": "so_data_scientist_or_machine_learning_specialist",
     "source": "stackoverflow_2024",
-    "dev_type": "4.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 4.0\nGlobal respondents: 1,118 developers\nMedian professional experience: 7 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 252 developers\n- India: 82 developers\n- United Kingdom of Great Britain and Northern Ireland: 76 developers\n- Germany: 67 developers\n- France: 59 developers\n- Ukraine: 55 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Data scientist or machine learning specialist",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Data scientist or machine learning specialist\nGlobal respondents: 1,118 developers\nMedian professional experience: 7 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 252 developers\n- India: 82 developers\n- United Kingdom of Great Britain and Northern Ireland: 76 developers\n- Germany: 67 developers\n- France: 59 developers\n- Ukraine: 55 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_5.0",
+    "id": "so_database_administrator",
     "source": "stackoverflow_2024",
-    "dev_type": "5.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 5.0\nGlobal respondents: 523 developers\nMedian professional experience: 4 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 129 developers\n- United Kingdom of Great Britain and Northern Ireland: 29 developers\n- India: 27 developers\n- Germany: 26 developers\n- Canada: 22 developers\n- Ukraine: 22 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Database administrator",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Database administrator\nGlobal respondents: 523 developers\nMedian professional experience: 4 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 129 developers\n- United Kingdom of Great Britain and Northern Ireland: 29 developers\n- India: 27 developers\n- Germany: 26 developers\n- Canada: 22 developers\n- Ukraine: 22 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_6.0",
+    "id": "so_designer",
     "source": "stackoverflow_2024",
-    "dev_type": "6.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 6.0\nGlobal respondents: 1,024 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 216 developers\n- Germany: 100 developers\n- India: 80 developers\n- United Kingdom of Great Britain and Northern Ireland: 55 developers\n- France: 42 developers\n- Ukraine: 42 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Designer",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Designer\nGlobal respondents: 1,024 developers\nMedian professional experience: 6 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 216 developers\n- Germany: 100 developers\n- India: 80 developers\n- United Kingdom of Great Britain and Northern Ireland: 55 developers\n- France: 42 developers\n- Ukraine: 42 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_7.0",
+    "id": "so_devops_specialist",
     "source": "stackoverflow_2024",
-    "dev_type": "7.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 7.0\nGlobal respondents: 171 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 33 developers\n- Germany: 14 developers\n- United Kingdom of Great Britain and Northern Ireland: 10 developers\n- China: 10 developers\n- Brazil: 9 developers\n- Canada: 7 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "DevOps specialist",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: DevOps specialist\nGlobal respondents: 171 developers\nMedian professional experience: 10 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 33 developers\n- Germany: 14 developers\n- United Kingdom of Great Britain and Northern Ireland: 10 developers\n- China: 10 developers\n- Brazil: 9 developers\n- Canada: 7 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_8.0",
+    "id": "so_developer_qa_or_test",
     "source": "stackoverflow_2024",
-    "dev_type": "8.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 8.0\nGlobal respondents: 182 developers\nMedian professional experience: 9 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 34 developers\n- India: 11 developers\n- Canada: 10 developers\n- Ukraine: 10 developers\n- United Kingdom of Great Britain and Northern Ireland: 9 developers\n- Germany: 9 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Developer, QA or test",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Developer, QA or test\nGlobal respondents: 182 developers\nMedian professional experience: 9 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 34 developers\n- India: 11 developers\n- Canada: 10 developers\n- Ukraine: 10 developers\n- United Kingdom of Great Britain and Northern Ireland: 9 developers\n- Germany: 9 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   },
   {
-    "id": "so_9.0",
+    "id": "so_developer_back-end",
     "source": "stackoverflow_2024",
-    "dev_type": "9.0",
-    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: 9.0\nGlobal respondents: 105 developers\nMedian professional experience: 12 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 31 developers\n- Germany: 14 developers\n- India: 7 developers\n- Spain: 6 developers\n- United Kingdom of Great Britain and Northern Ireland: 6 developers\n- Brazil: 3 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
+    "dev_type": "Developer, back-end",
+    "content": "Source: Stack Overflow Developer Survey 2024\nOrganization: Stack Overflow (survey.stackoverflow.co/2024/)\nLicense: Open Database License (ODbL)\nRole: Developer, back-end\nGlobal respondents: 105 developers\nMedian professional experience: 12 years\n \nREGIONAL DISTRIBUTION (top countries):\n- United States of America: 31 developers\n- Germany: 14 developers\n- India: 7 developers\n- Spain: 6 developers\n- United Kingdom of Great Britain and Northern Ireland: 6 developers\n- Brazil: 3 developers\n \nThis data reflects real developer responses from 185 countries.\nCombine with O*NET data for detailed skill requirements for this role."
   }
 ]

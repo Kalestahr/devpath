@@ -14,7 +14,9 @@ def load_json(path):
 def all_chunks():
     for path in ['data/processed/so_chunks.json',
                  'data/processed/onet_chunks.json',
-                 'data/processed/wef_chunks.json']:
+                 'data/processed/wef_chunks.json',
+                 'data/processed/so2025_chunks.json',
+                 'data/processed/jetbrains_chunks.json']:
         chunks = load_json(path)
         print(f'  {path}: {len(chunks)} chunks')
         yield from chunks

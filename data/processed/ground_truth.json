@@ -1,362 +1,362 @@
 [
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_1.0"
+    "What percent of DBAs use SQL?",
+    "jb2025_dba"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_1.0"
+    "How many DBAs are from the United States?",
+    "jb2025_dba"
   ],
   [
-    "What is the total number of countries that developers who participated in the Stack Overflow Developer Survey 2024 come from?",
-    "so_1.0"
+    "Which language is used by 51.7% of DBAs?",
+    "jb2025_dba"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_10.0"
+    "What percentage of architects used JavaScript?",
+    "jb2025_architect"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_10.0"
+    "Which country had the second highest architect count?",
+    "jb2025_architect"
   ],
   [
-    "What is the total number of global respondents that participated in the Stack Overflow Developer Survey 2024?",
-    "so_10.0"
+    "How many architects used Python?",
+    "jb2025_architect"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_11.0"
+    "What percentage of developer productivity engineers used JavaScript in 2025?",
+    "jb2025_developer_productivity___developer_experience_engi"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in Stack Overflow Developer Survey 2024?",
-    "so_11.0"
+    "How many respondents were in the developer productivity/experience engineer role?",
+    "jb2025_developer_productivity___developer_experience_engi"
   ],
   [
-    "What is the total number of countries that provided real developer responses in Stack Overflow Developer Survey 2024?",
-    "so_11.0"
+    "Which language was used by 60.9% of respondents?",
+    "jb2025_developer_productivity___developer_experience_engi"
   ],
   [
-    "What is the median professional experience of the 9,928 developers who participated in the Stack Overflow Developer Survey 2024?",
-    "so_12.0"
+    "What is the highest percentage language used by UX/UI designers?",
+    "jb2025_ux___ui_designer"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland responded to the Stack Overflow Developer Survey 2024?",
-    "so_12.0"
+    "How many UX/UI designers from the United States responded?",
+    "jb2025_ux___ui_designer"
   ],
   [
-    "In which year was the survey conducted that collected data from 9,928 developers for the Stack Overflow Developer Survey?",
-    "so_12.0"
+    "Which country follows the United States in respondent count?",
+    "jb2025_ux___ui_designer"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_13.0"
+    "Which programming language had the highest usage percentage among Technical Support Specialists in 2025?",
+    "jb2025_technical_support_specialist"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_13.0"
+    "How many respondents in the Technical Support Specialist role are from Germany?",
+    "jb2025_technical_support_specialist"
   ],
   [
-    "From which countries did the top respondents of the Stack Overflow Developer Survey 2024 originate?",
-    "so_13.0"
+    "What percentage of Technical Support Specialists used Python in 2025?",
+    "jb2025_technical_support_specialist"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_14.0"
+    "Which programming language had the highest adoption among CIO/CEO/CTO respondents in 2025?",
+    "jb2025_cio___ceo___cto"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_14.0"
+    "How many respondents held the CIO role in the survey?",
+    "jb2025_cio___ceo___cto"
   ],
   [
-    "From which countries did the 1,623 developers in the Stack Overflow Developer Survey 2024 originate?",
-    "so_14.0"
+    "Which country had the second highest number of CIO/CEO/CTO respondents?",
+    "jb2025_cio___ceo___cto"
   ],
   [
-    "What is the median professional experience of the 3,349 developers who participated in the Stack Overflow Developer Survey 2024?",
-    "so_15.0"
+    "What SOC code is listed for this occupation?",
+    "onet_15_1299"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_15.0"
+    "Which core skill is not a communication skill?",
+    "onet_15_1299"
   ],
   [
-    "In which year was the survey conducted that collected data from 3,349 developers according to the Stack Overflow Developer Survey?",
-    "so_15.0"
+    "Under which license can this document be used?",
+    "onet_15_1299"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_16.0"
+    "What is the SOC code for Software Developers?",
+    "onet_15_1252"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_16.0"
+    "Which programming language named APL appears in the list?",
+    "onet_15_1252"
   ],
   [
-    "From which countries did the top respondents of the Stack Overflow Developer Survey 2024 originate?",
-    "so_16.0"
+    "Name one software tool from the list that starts with 'Adobe'?",
+    "onet_15_1252"
   ],
   [
-    "What is the median professional experience of the 706 developers surveyed in the Stack Overflow Developer Survey 2024?",
-    "so_17.0"
+    "What is the SOC code for Database Administrators and Architects?",
+    "onet_15_1243"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_17.0"
+    "Which organization publishes the O*NET database?",
+    "onet_15_1243"
   ],
   [
-    "What is the license under which the data from the Stack Overflow Developer Survey 2024 is released for developers?",
-    "so_17.0"
+    "Which skills are listed under CORE SKILLS REQUIRED?",
+    "onet_15_1243"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_18.0"
+    "What is the SOC code for Computer Network Support Specialists?",
+    "onet_15_1231"
   ],
   [
-    "Which country has the most developers participating in the Stack Overflow Developer Survey 2024?",
-    "so_18.0"
+    "Which organization maintains the O*NET database?",
+    "onet_15_1231"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_18.0"
+    "Name a core skill required for Computer Network Support Specialists.",
+    "onet_15_1231"
   ],
   [
-    "What is the median professional experience of Data Scientists according to Stack Overflow Developer Survey 2024?",
-    "so_19.0"
+    "What is the SOC Code for Computer Systems Analysts?",
+    "onet_15_1211"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024 as Data Scientists?",
-    "so_19.0"
+    "Which organization publishes O*NET?",
+    "onet_15_1211"
   ],
   [
-    "What is the global number of respondents that participated in the Stack Overflow Developer Survey 2024 as Data Scientists?",
-    "so_19.0"
+    "Which core skill involves evaluating data mathematically?",
+    "onet_15_1211"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_2.0"
+    "What is the SOC code for Data Scientists?",
+    "onet_15_2051"
   ],
   [
-    "How many developers from Ukraine participated in the Stack Overflow Developer Survey 2024?",
-    "so_2.0"
+    "Which organization produced this O*NET data?",
+    "onet_15_2051"
   ],
   [
-    "What is the total number of countries from which real developer responses were collected for the Stack Overflow Developer Survey 2024?",
-    "so_2.0"
+    "Which skills are listed as core requirements for Data Scientists?",
+    "onet_15_2051"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_20.0"
+    "How many U.S. developers answered the survey?",
+    "so_developer_embedded_applications_or_devices"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_20.0"
+    "What was the median professional experience?",
+    "so_developer_embedded_applications_or_devices"
   ],
   [
-    "What is the total number of countries from which developers responded in the Stack Overflow Developer Survey 2024?",
-    "so_20.0"
+    "Which country had the second highest number of respondents?",
+    "so_developer_embedded_applications_or_devices"
   ],
   [
-    "What is the median professional experience of Data Scientists according to Stack Overflow Developer Survey 2024?",
-    "so_21.0"
+    "What is the median professional experience of respondents?",
+    "so_developer_desktop_or_enterprise_applications"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024 for the role of Data Scientists?",
-    "so_21.0"
+    "Which country had the highest number of respondents?",
+    "so_developer_desktop_or_enterprise_applications"
   ],
   [
-    "In which year was the survey conducted that provides information on the role of Data Scientists according to Stack Overflow?",
-    "so_21.0"
+    "How many countries are represented in the survey?",
+    "so_developer_desktop_or_enterprise_applications"
   ],
   [
-    "What is the median professional experience of respondents in the Stack Overflow Developer Survey 2024?",
-    "so_22.0"
+    "How many respondents are from the United States?",
+    "so_developer_game_or_graphics"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_22.0"
+    "What is the median professional experience of respondents?",
+    "so_developer_game_or_graphics"
   ],
   [
-    "What is the global total number of respondents in the Stack Overflow Developer Survey 2024?",
-    "so_22.0"
+    "Which country ranks third in the regional distribution?",
+    "so_developer_game_or_graphics"
   ],
   [
-    "What is the median professional experience of developers according to the Stack Overflow Developer Survey 2024?",
-    "so_23.0"
+    "How many respondents were from the United States?",
+    "so_developer_mobile"
   ],
   [
-    "Which country has the most developers participating in the Stack Overflow Developer Survey 2024?",
-    "so_23.0"
+    "What is the median professional experience of respondents?",
+    "so_developer_mobile"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_23.0"
+    "Which country had the second highest number of respondents?",
+    "so_developer_mobile"
   ],
   [
-    "What is the median professional experience of developers according to the Stack Overflow Developer Survey 2024?",
-    "so_24.0"
+    "What is the median professional experience among respondents?",
+    "so_engineer_site_reliability"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_24.0"
+    "Which country has the highest number of respondents?",
+    "so_engineer_site_reliability"
   ],
   [
-    "What is the total number of global respondents in the Stack Overflow Developer Survey 2024?",
-    "so_24.0"
+    "How many developers responded from Germany?",
+    "so_engineer_site_reliability"
   ],
   [
-    "What is the median professional experience of Data Scientists according to Stack Overflow Developer Survey 2024?",
-    "so_25.0"
+    "How many developers were surveyed globally?",
+    "so_security_professional"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024 for Data Scientists?",
-    "so_25.0"
+    "Which country had the highest number of respondents?",
+    "so_security_professional"
   ],
   [
-    "What is the regional distribution of Data Scientists in the Netherlands according to the Stack Overflow Developer Survey 2024?",
-    "so_25.0"
+    "What is the median professional experience of respondents?",
+    "so_security_professional"
   ],
   [
-    "What is the median professional experience of the 2,458 developers who participated in the Stack Overflow Developer Survey 2024?",
-    "so_26.0"
+    "What percentage of academic researchers used Python in 2025?",
+    "so2025_academic_researcher"
   ],
   [
-    "Which country has the most developers participating in the Stack Overflow Developer Survey 2024, according to the provided data?",
-    "so_26.0"
+    "Which database had the highest usage among academic researchers in 2025?",
+    "so2025_academic_researcher"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland responded to the Stack Overflow Developer Survey 2024?",
-    "so_26.0"
+    "What percentage of academic researchers used MongoDB in 2025?",
+    "so2025_academic_researcher"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_27.0"
+    "What percentage of full-stack developers used JavaScript in 2025?",
+    "so2025_developer_full-stack"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_27.0"
+    "Which database had the highest usage among respondents?",
+    "so2025_developer_full-stack"
   ],
   [
-    "What is the total number of global respondents in the Stack Overflow Developer Survey 2024?",
-    "so_27.0"
+    "Name the AI tool category mentioned for 2025.",
+    "so2025_developer_full-stack"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_28.0"
+    "What percentage of data engineers used Python in 2025?",
+    "so2025_data_engineer"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_28.0"
+    "Which database had the highest usage among data engineers in 2025?",
+    "so2025_data_engineer"
   ],
   [
-    "What is the license of the data provided by the Stack Overflow Developer Survey 2024 for developers?",
-    "so_28.0"
+    "Which AI tool was most frequently used by data engineers in 2025?",
+    "so2025_data_engineer"
   ],
   [
-    "What is the median professional experience of the 943 developers who participated in the survey according to the Stack Overflow Developer Survey 2024?",
-    "so_29.0"
+    "What % of founders used JavaScript in 2025?",
+    "so2025_founder_technology_or_otherwise"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_29.0"
+    "Which database had the highest adoption rate among founders?",
+    "so2025_founder_technology_or_otherwise"
   ],
   [
-    "What is the total number of countries that the developers who participated in the Stack Overflow Developer Survey 2024 came from?",
-    "so_29.0"
+    "How many countries were represented in the survey?",
+    "so2025_founder_technology_or_otherwise"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_3.0"
+    "Which programming language had the highest usage among engineering managers in 2025?",
+    "so2025_engineering_manager"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_3.0"
+    "What percentage of engineering managers used PostgreSQL in 2025?",
+    "so2025_engineering_manager"
   ],
   [
-    "What is the total number of global respondents in the Stack Overflow Developer Survey 2024?",
-    "so_3.0"
+    "How many countries were represented in the 2025 survey?",
+    "so2025_engineering_manager"
   ],
   [
-    "What is the median professional experience of the 332 developers who participated in the Stack Overflow Developer Survey 2024?",
-    "so_30.0"
+    "Which programming language was most used by students?",
+    "so2025_student"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_30.0"
+    "Which database was most used by students?",
+    "so2025_student"
   ],
   [
-    "From which countries did the 332 developers who participated in the Stack Overflow Developer Survey 2024 originate?",
-    "so_30.0"
+    "What was the median experience level of students?",
+    "so2025_student"
   ],
   [
-    "What is the median professional experience of the 356 developers who participated in the Stack Overflow Developer Survey 2024?",
-    "so_31.0"
+    "What is the UAE's labour force participation rate for 2023?",
+    "wef_p210"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland responded to the Stack Overflow Developer Survey 2024?",
-    "so_31.0"
+    "What percentage of UAE workers were in vulnerable employment in 2022?",
+    "wef_p210"
   ],
   [
-    "What percentage of the total 356 developers are from the United States of America according to the Stack Overflow Developer Survey 2024?",
-    "so_31.0"
+    "What was the secondary education attainment rate in the UAE for 2022?",
+    "wef_p210"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_32.0"
+    "What is Korea's working age population in millions?",
+    "wef_p162"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_32.0"
+    "What is Korea's labour force participation rate in 2023?",
+    "wef_p162"
   ],
   [
-    "What is the total number of countries from which developers responded in the Stack Overflow Developer Survey 2024?",
-    "so_32.0"
+    "What percentage of Korea's workforce was in vulnerable employment in 2022?",
+    "wef_p162"
   ],
   [
-    "What is the median number of developers from the United Kingdom of Great Britain and Northern Ireland according to the Stack Overflow survey for the role of Data Scientists?",
-    "so_33.0"
+    "Which 55 economies are covered?",
+    "wef_p87"
   ],
   [
-    "How many Data Scientists are from the United States of America, based on the Stack Overflow Developer Survey 2024?",
-    "so_33.0"
+    "What are the top skills on the rise?",
+    "wef_p87"
   ],
   [
-    "What percentage of the total 5102 developers are from India for the role of Data Scientists in the Stack Overflow Developer Survey 2024?",
-    "so_33.0"
+    "Which emerging job roles are expected to grow?",
+    "wef_p87"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_34.0"
+    "What is the working age population in the Netherlands?",
+    "wef_p174"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_34.0"
+    "What is the labour force participation rate for the Netherlands in 2023?",
+    "wef_p174"
   ],
   [
-    "What is the total number of countries that provided real developer responses for the Stack Overflow Developer Survey 2024?",
-    "so_34.0"
+    "What percentage of Dutch workers were vulnerable employed in 2022?",
+    "wef_p174"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_4.0"
+    "What is the working age population in Latin America and the Caribbean?",
+    "wef_p228"
   ],
   [
-    "How many developers from the United States of America participated in the Stack Overflow Developer Survey 2024?",
-    "so_4.0"
+    "What percentage of Latin America and Caribbean organizations have AI exposure?",
+    "wef_p228"
   ],
   [
-    "What is the license used for the data in the Stack Overflow Developer Survey 2024?",
-    "so_4.0"
+    "How does Latin America's labour\u2011market churn compare to the global churn?",
+    "wef_p228"
   ],
   [
-    "What is the median professional experience of developers according to Stack Overflow Developer Survey 2024?",
-    "so_5.0"
+    "What is the coverage scope of the 2025 report?",
+    "wef_p108"
   ],
   [
-    "How many developers from the United Kingdom of Great Britain and Northern Ireland participated in the Stack Overflow Developer Survey 2024?",
-    "so_5.0"
+    "Which section outlines training for youth not in education?",
+    "wef_p108"
   ],
   [
-    "What is the total number of developers from all countries who participated in the Stack Overflow Developer Survey 2024?",
-    "so_5.0"
+    "How many workers are included in the study?",
+    "wef_p108"
   ]
 ]
