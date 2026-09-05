@@ -50,6 +50,8 @@ Rules:
 - Search the knowledge base whenever you need current stats to answer. Simple
   follow-up or clarifying questions that do not need new data can be answered
   directly without a search
+- Do not search more than 2-3 times for a single question. Once you have
+  enough relevant information, stop searching and answer directly
 - Be practical and give concrete next steps
 '''.strip()
 
@@ -129,10 +131,11 @@ async def run_agent(question: str, deps: Deps) -> str:
     ]
 
     with logfire.span('agent_run', question=question, region=deps.region, target_role=deps.target_role):
-        for iteration in range(6):
+        MAX_ITERATIONS = 4
+        for iteration in range(MAX_ITERATIONS):
             # On the last allowed iteration, force a text answer instead of
             # letting the model call a tool again and run out of turns.
-            force_final = (iteration == 5)
+            force_final = (iteration == MAX_ITERATIONS - 1)
             try:
                 with logfire.span('llm_call', iteration=iteration, force_final=force_final):
                     response = await groq_client.chat.completions.create(
