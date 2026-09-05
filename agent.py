@@ -17,7 +17,15 @@ _chunks = load_chunks()
 _text_idx, _vec_idx, _ = build_indexes(_chunks)
 print("Ready.")
 
-groq_client = AsyncGroq(api_key=os.getenv('GROQ_API_KEY'))
+groq_client = AsyncGroq(
+    api_key=os.getenv('GROQ_API_KEY'),
+    # SDK defaults are timeout=120s and max_retries=2 - a single slow or
+    # rate-limited call could silently retry for minutes before our own
+    # per-iteration fallback logic ever gets a chance to run. Tightening
+    # this makes a stuck call fail fast into that fallback instead.
+    timeout=30.0,
+    max_retries=1,
+)
 
 MODEL = "openai/gpt-oss-120b"
 MODEL_FALLBACK = "openai/gpt-oss-20b"
@@ -126,13 +134,14 @@ def run_tool(name: str, args: dict) -> str:
         return "Unknown tool."
 
 def _gathered_results_text(messages: list) -> str:
-    """Summary of every search result gathered so far this turn."""
+    """Plain-text summary of every search result gathered so far this turn."""
     excerpts = [m["content"] for m in messages if m.get("role") == "tool" and m.get("content")]
     return "\n\n".join(excerpts) if excerpts else ""
 
 def _fallback_answer_from_tool_results(messages: list) -> str:
-    """Build an answer directly from whatever search results were
-    already gathered this turn."""
+    """Build a plain-text answer directly from whatever search results were
+    already gathered this turn. Used only when every model call fails, so
+    the person never sees a raw API error string."""
     gathered = _gathered_results_text(messages)
     if not gathered:
         return ("I ran into a problem reaching the model and wasn't able to search for an "
