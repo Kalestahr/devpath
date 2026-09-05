@@ -6,7 +6,7 @@ import streamlit as st
 import os, json
 
 from agent import agent, Deps
-from monitoring import init_tables, log_feedback, log_query_time, get_feedback_log, get_query_times
+from monitoring import init_tables, log_feedback, log_query_time, get_feedback_log, get_query_times, get_query_log
 
 @st.cache_resource
 def _ensure_monitoring_tables():
@@ -83,106 +83,138 @@ with st.sidebar:
 if st.session_state.page == "stats":
     st.markdown('<p class="dp-title">DevPath</p>', unsafe_allow_html=True)
     st.markdown("## Monitoring Dashboard")
-    st.divider()
 
     fb = get_feedback_log()
     times = get_query_times()
-    n_queries = len(times)
     n_positive = sum(1 for f in fb if f["rating"] == 1)
     n_negative = sum(1 for f in fb if f["rating"] == -1)
     avg_time = round(sum(times) / len(times), 2) if times else 0
 
-    st.caption("Totals below are across all sessions, not just this browser tab.")
+    import pandas as pd
 
-    # Metric cards
-    col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Total Queries", n_queries)
-    col2.metric("Positive Feedback", n_positive)
-    col3.metric("Negative Feedback", n_negative)
-    col4.metric("Avg Response Time", f"{avg_time}s")
+    tab_usage, tab_retrieval, tab_dataset = st.tabs(["Live Usage", "Retrieval & Prompts", "Dataset"])
 
-    st.divider()
+    with tab_usage:
+        st.caption("Live activity across all sessions, updates as people use the app.")
 
-    if times:
-        import pandas as pd
-        col1, col2 = st.columns(2)
-        with col1:
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Total Queries", len(times))
+        col2.metric("Positive Feedback", n_positive)
+        col3.metric("Negative Feedback", n_negative)
+        col4.metric("Avg Response Time", f"{avg_time}s")
+
+        if times:
             st.markdown("**Response Times**")
             df_times = pd.DataFrame({"Query": range(1, len(times)+1), "Seconds": times})
             st.line_chart(df_times.set_index("Query"))
+        else:
+            st.caption("No queries logged yet - ask something in Chat to see this fill in.")
 
-        with col2:
+        if n_positive + n_negative > 0:
             st.markdown("**Feedback Distribution**")
-            if n_positive + n_negative > 0:
-                df_fb = pd.DataFrame({
-                    "Type": ["Positive", "Negative"],
-                    "Count": [n_positive, n_negative]
-                })
-                st.bar_chart(df_fb.set_index("Type"))
-            else:
-                st.caption("No feedback yet.")
-
-    if fb:
-        st.markdown("**Recent Feedback**")
-        for f in fb[-5:]:
-            emoji = "👍" if f["rating"] == 1 else "👎"
-            st.caption(f"{emoji} {f['question'][:80]}...")
-
-    st.divider()
-    st.markdown("**Evaluation Results**")
-    try:
-        with open('data/processed/eval_results.json') as f:
-            eval_results = json.load(f)
-        selected = eval_results['best_retrieval_method']
-        col1, col2, col3 = st.columns(3)
-        col1.metric(f"{selected.replace('_', ' ').title()} Hit Rate", eval_results[selected]['hit_rate'])
-        col2.metric(f"{selected.replace('_', ' ').title()} MRR", eval_results[selected]['mrr'])
-        col3.metric("Selected Method", selected)
-
-        df_eval = {
-            "Method": ["text_search", "vector_search", "hybrid (RRF)", "hybrid + rerank"],
-            "Hit Rate": [eval_results['text']['hit_rate'], eval_results['vector']['hit_rate'], eval_results['hybrid']['hit_rate'], eval_results['hybrid_reranked']['hit_rate']],
-            "MRR": [eval_results['text']['mrr'], eval_results['vector']['mrr'], eval_results['hybrid']['mrr'], eval_results['hybrid_reranked']['mrr']],
-        }
-        import pandas as pd
-        df_eval = pd.DataFrame(df_eval)
-        st.dataframe(df_eval, use_container_width=True)
-        st.markdown("**Retrieval Method Comparison**")
-        st.bar_chart(df_eval.set_index("Method"))
-
-        if 'rag_evaluation' in eval_results:
-            st.markdown("**RAG Prompt Comparison (LLM-as-Judge)**")
-            rag = eval_results['rag_evaluation']
-            v1 = rag['prompt_v1_concise']['avg_score']
-            v2 = rag['prompt_v2_detailed']['avg_score']
-            improvement = round(v2 - v1, 2)
-            pct = round((improvement / v1) * 100) if v1 else 0
-            col1, col2 = st.columns(2)
-            col1.metric("Prompt V1 (Concise)", f"{v1}/5")
-            col2.metric("Prompt V2 (Detailed+Citations)", f"{v2}/5", delta=f"+{improvement} ({pct}% better than V1)")
-            st.success(f"Winner: {rag['winner']} - used in production agent")
-            st.caption("Scored 1-5 by an LLM judge on relevance and accuracy using a strict rubric, so scores in the 2-3 range are typical, not a sign the answers are poor.")
-            df_rag = pd.DataFrame({
-                "Prompt": ["V1: concise", "V2: detailed + citations"],
-                "Avg Score": [v1, v2],
+            df_fb = pd.DataFrame({
+                "Type": ["Positive", "Negative"],
+                "Count": [n_positive, n_negative]
             })
-            st.bar_chart(df_rag.set_index("Prompt"))
-    except Exception:
-        st.caption("Run rag/evaluate.py to see evaluation results.")
+            st.bar_chart(df_fb.set_index("Type"))
 
-    st.divider()
-    st.markdown("**Dataset Coverage**")
-    data = {
-        "Source": ["SO Survey 2024", "SO Survey 2025", "JetBrains 2025", "O*NET 29.0", "WEF 2025"],
-        "Respondents": ["65,437", "49,191", "24,534", "900+ occupations", "55 economies"],
-        "Countries": ["185", "177", "194", "US (global standard)", "55"],
-        "Chunks": [34, 32, 18, 7, 96]
-    }
-    import pandas as pd
-    df_data = pd.DataFrame(data)
-    st.dataframe(df_data, use_container_width=True)
-    st.markdown("**Chunks per Source**")
-    st.bar_chart(df_data.set_index("Source")["Chunks"])
+        if times:
+            st.markdown("**Response Time Distribution**")
+            buckets = ["<2s", "2-5s", "5-10s", "10-20s", "20s+"]
+            counts = [0, 0, 0, 0, 0]
+            for t in times:
+                if t < 2:
+                    counts[0] += 1
+                elif t < 5:
+                    counts[1] += 1
+                elif t < 10:
+                    counts[2] += 1
+                elif t < 20:
+                    counts[3] += 1
+                else:
+                    counts[4] += 1
+            df_buckets = pd.DataFrame({"Range": buckets, "Queries": counts})
+            st.bar_chart(df_buckets.set_index("Range"))
+
+        query_log = get_query_log()
+        if query_log:
+            df_q = pd.DataFrame(query_log)
+            df_q["date"] = pd.to_datetime(df_q["time"]).dt.date
+            st.markdown("**Queries per Day**")
+            daily_queries = df_q.groupby("date").size().rename("Queries")
+            st.bar_chart(daily_queries)
+
+        if fb:
+            df_fb_time = pd.DataFrame(fb)
+            df_fb_time["date"] = pd.to_datetime(df_fb_time["time"]).dt.date
+            df_fb_time["type"] = df_fb_time["rating"].map({1: "Positive", -1: "Negative"})
+            daily_fb = df_fb_time.groupby(["date", "type"]).size().unstack(fill_value=0)
+            if not daily_fb.empty:
+                st.markdown("**Feedback per Day**")
+                st.bar_chart(daily_fb)
+
+        if fb:
+            st.markdown("**Recent Feedback**")
+            for f in fb[-5:]:
+                emoji = "👍" if f["rating"] == 1 else "👎"
+                st.caption(f"{emoji} {f['question'][:80]}...")
+
+    with tab_retrieval:
+        st.caption("One-time evaluation results from rag/evaluate.py - these don't change as people use the app.")
+
+        try:
+            with open('data/processed/eval_results.json') as f:
+                eval_results = json.load(f)
+            selected = eval_results['best_retrieval_method']
+
+            col1, col2, col3 = st.columns(3)
+            col1.metric(f"{selected.replace('_', ' ').title()} Hit Rate", eval_results[selected]['hit_rate'])
+            col2.metric(f"{selected.replace('_', ' ').title()} MRR", eval_results[selected]['mrr'])
+            col3.metric("Selected Method", selected)
+
+            with st.expander("Compare all retrieval methods", expanded=True):
+                df_eval = pd.DataFrame({
+                    "Method": ["text_search", "vector_search", "hybrid (RRF)", "hybrid + rerank"],
+                    "Hit Rate": [eval_results['text']['hit_rate'], eval_results['vector']['hit_rate'], eval_results['hybrid']['hit_rate'], eval_results['hybrid_reranked']['hit_rate']],
+                    "MRR": [eval_results['text']['mrr'], eval_results['vector']['mrr'], eval_results['hybrid']['mrr'], eval_results['hybrid_reranked']['mrr']],
+                })
+                st.dataframe(df_eval, use_container_width=True)
+                st.bar_chart(df_eval.set_index("Method"))
+
+            if 'rag_evaluation' in eval_results:
+                st.divider()
+                st.markdown("**RAG Prompt Comparison (LLM-as-Judge)**")
+                rag = eval_results['rag_evaluation']
+                v1 = rag['prompt_v1_concise']['avg_score']
+                v2 = rag['prompt_v2_detailed']['avg_score']
+                improvement = round(v2 - v1, 2)
+                pct = round((improvement / v1) * 100) if v1 else 0
+                col1, col2 = st.columns(2)
+                col1.metric("Prompt V1 (Concise)", f"{v1}/5")
+                col2.metric("Prompt V2 (Detailed+Citations)", f"{v2}/5", delta=f"+{improvement} ({pct}% better than V1)")
+                st.success(f"Winner: {rag['winner']} - used in production agent")
+                st.caption("Scored 1-5 by an LLM judge on relevance and accuracy using a strict rubric, so scores in the 2-3 range are typical, not a sign the answers are poor.")
+                with st.expander("See the score breakdown as a chart", expanded=True):
+                    df_rag = pd.DataFrame({
+                        "Prompt": ["V1: concise", "V2: detailed + citations"],
+                        "Avg Score": [v1, v2],
+                    })
+                    st.bar_chart(df_rag.set_index("Prompt"))
+        except Exception:
+            st.caption("Run rag/evaluate.py to see evaluation results.")
+
+    with tab_dataset:
+        st.caption("What's in the knowledge base right now.")
+        data = {
+            "Source": ["SO Survey 2024", "SO Survey 2025", "JetBrains 2025", "O*NET 29.0", "WEF 2025"],
+            "Respondents": ["65,437", "49,191", "24,534", "900+ occupations", "55 economies"],
+            "Countries": ["185", "177", "194", "US (global standard)", "55"],
+            "Chunks": [34, 32, 18, 7, 96]
+        }
+        df_data = pd.DataFrame(data)
+        st.dataframe(df_data, use_container_width=True)
+        st.markdown("**Chunks per Source**")
+        st.bar_chart(df_data.set_index("Source")["Chunks"])
 
 # ── Chat Page ─────────────────────────────────────────────────────────────────
 else:

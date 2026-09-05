@@ -6,11 +6,6 @@ DB_PATH = 'devpath_pipeline.duckdb'
 
 
 def _connect_with_retry(retries: int = 3, delay: float = 0.3):
-    # docker-compose runs the api and ui services against the same duckdb
-    # file, and DuckDB needs an exclusive lock for writes, so a brief
-    # collision between the two services (or between Streamlit reruns) is
-    # expected occasionally. A few short retries ride out that window
-    # instead of surfacing a TransactionException to the user.
     last_error = None
     for attempt in range(retries):
         try:
@@ -75,3 +70,13 @@ def get_query_times():
     ).fetchall()
     conn.close()
     return [r[0] for r in rows]
+
+def get_query_log():
+    """Same data as get_query_times() but with timestamps too, for charts
+    that need to group or trend by date (e.g. queries per day)."""
+    conn = _connect_with_retry()
+    rows = conn.execute(
+        'SELECT question, seconds, logged_at FROM devpath.query_times ORDER BY logged_at'
+    ).fetchall()
+    conn.close()
+    return [{'question': r[0], 'seconds': r[1], 'time': r[2].isoformat()} for r in rows]
