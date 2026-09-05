@@ -53,6 +53,12 @@ Rules:
 - Do not search more than 2-3 times for a single question. Once you have
   enough relevant information, stop searching and answer directly
 - Be practical and give concrete next steps
+- Only answer questions about tech careers, developer skills, job markets, or
+  logistics related to using DevPath itself. If a question is unrelated (for
+  example, general coding help, unrelated commands, or general knowledge),
+  say briefly that it is outside what DevPath covers and suggest the person
+  ask a tech-career question instead. Do not attempt to answer off-topic
+  questions from general knowledge
 '''.strip()
 
 TOOLS = [
@@ -133,48 +139,44 @@ async def run_agent(question: str, deps: Deps) -> str:
     with logfire.span('agent_run', question=question, region=deps.region, target_role=deps.target_role):
         MAX_ITERATIONS = 4
         for iteration in range(MAX_ITERATIONS):
-            # On the last allowed iteration, force a text answer instead of
-            # letting the model call a tool again and run out of turns.
             force_final = (iteration == MAX_ITERATIONS - 1)
             try:
                 with logfire.span('llm_call', iteration=iteration, force_final=force_final):
-                    response = await groq_client.chat.completions.create(
-                        model=MODEL,
-                        messages=messages,
-                        tools=TOOLS,
-                        tool_choice="none" if force_final else "auto",
-                    )
+                    if force_final:
+                        response = await groq_client.chat.completions.create(
+                            model=MODEL,
+                            messages=messages,
+                        )
+                    else:
+                        response = await groq_client.chat.completions.create(
+                            model=MODEL,
+                            messages=messages,
+                            tools=TOOLS,
+                            tool_choice="auto",
+                        )
                     logfire.info('llm_response',
                         input_tokens=response.usage.prompt_tokens if response.usage else 0,
                         output_tokens=response.usage.completion_tokens if response.usage else 0,
                     )
             except Exception:
                 # Primary model failed or is rate-limited - retry once on the
-                # fallback model, first with tools, then without.
+                # fallback model, same tools-or-not rule as above.
                 try:
                     with logfire.span('llm_fallback', model=MODEL_FALLBACK):
-                        response = await groq_client.chat.completions.create(
-                            model=MODEL_FALLBACK,
-                            messages=messages,
-                            tools=TOOLS,
-                            tool_choice="none" if force_final else "auto",
-                        )
-                    msg = response.choices[0].message
-                    if not msg.tool_calls:
-                        answer = msg.content or "No answer generated."
-                        return re.sub(r'<think>.*?</think>', '', answer, flags=re.DOTALL).strip()
-                    # fallback model 
-                except Exception:
-                    try:
-                        with logfire.span('llm_fallback_no_tools', model=MODEL_FALLBACK):
+                        if force_final:
                             response = await groq_client.chat.completions.create(
                                 model=MODEL_FALLBACK,
                                 messages=messages,
                             )
-                        answer = response.choices[0].message.content or "No answer generated."
-                        return re.sub(r'<think>.*?</think>', '', answer, flags=re.DOTALL).strip()
-                    except Exception as e:
-                        return f"An error occurred: {str(e)}"
+                        else:
+                            response = await groq_client.chat.completions.create(
+                                model=MODEL_FALLBACK,
+                                messages=messages,
+                                tools=TOOLS,
+                                tool_choice="auto",
+                            )
+                except Exception as e:
+                    return f"An error occurred: {str(e)}"
 
             msg = response.choices[0].message
             if not msg.tool_calls:
