@@ -55,7 +55,7 @@ You type a question
 Streamlit chat interface
        |
        v
-AgentShim (Groq qwen/qwen3.6-27b)
+AgentShim (Groq openai/gpt-oss-120b)
   - Decides what to search and how many times
   - Uses 2 tools: search() and search_by_source()
        |
@@ -109,7 +109,8 @@ flowchart TD
     U([User]) --> ST[Streamlit UI\nstreamlit_app.py]
     ST --> AG[AgentShim\nRaw Groq Client + Manual Tool Loop]
     ST --> FB[Feedback\nthumbs up/down]
-    AG --> LLM[qwen/qwen3.6-27b\nGroq free tier]
+    FB --> MON[(DuckDB\nfeedback_log + query_times)]
+    AG --> LLM[openai/gpt-oss-120b\nGroq free tier]
     AG --> LF[Logfire\nagent_run / llm_call / tool_call spans]
     LLM -->|search tool| IDX[index.py\ntext + vector + hybrid RRF + cross-encoder rerank]
     LLM -->|search_by_source tool| IDX
@@ -180,6 +181,7 @@ devpath/
 ├── index.py                  # text + vector + hybrid search (RRF) + cross-encoder reranking
 ├── embedder.py                # ONNX embedder (all-MiniLM-L6-v2), thread-safe tokenizer access
 ├── streamlit_app.py          # Streamlit Cloud entry (calls agent directly)
+├── monitoring.py             # Persists feedback + query times to DuckDB for the Stats dashboard
 ├── requirements.txt          # Streamlit Cloud dependencies
 ├── pyproject.toml            # uv / Docker dependencies (torch pinned to CPU-only wheel)
 ├── uv.lock                   # Locked dependency versions
@@ -192,7 +194,7 @@ devpath/
 ├── ingestion/
 │   ├── clean_so.py            # SO Survey 2024 -> so_chunks.json
 │   ├── clean_so2025.py        # SO Survey 2025 -> so2025_chunks.json (NEW)
-│   ├── clean_jetbrains.py     # JetBrains Ecosystem 2025 -> jb2025_chunks.json (NEW)
+│   ├── clean_jetbrains.py     # JetBrains Ecosystem 2025 -> jetbrains_chunks.json (NEW)
 │   ├── clean_onet.py          # O*NET -> onet_chunks.json
 │   ├── extract_wef.py         # WEF PDF -> wef_chunks.json
 │   └── pipeline.py            # dlt: JSON chunks -> DuckDB
@@ -203,7 +205,7 @@ devpath/
 └── data/processed/           # JSON chunks + eval results (committed)
     ├── so_chunks.json        # 34 developer role chunks (SO 2024)
     ├── so2025_chunks.json    # 32 developer role chunks (SO 2025)
-    ├── jb2025_chunks.json    # 18 chunks (JetBrains Ecosystem 2025)
+    ├── jetbrains_chunks.json # 18 chunks (JetBrains Ecosystem 2025)
     ├── onet_chunks.json      # 7 tech occupation chunks
     ├── wef_chunks.json       # 96 regional forecast chunks
     ├── ground_truth.json     # 90 evaluation Q&A pairs (stratified across all 5 sources)
